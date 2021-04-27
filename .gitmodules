@@ -1,0 +1,6 @@
+[submodule "Raidriarch/vendor/spdlog"]
+	path = Hazel/vendor/spdlog
+	url = https://github.com/gabime/spdlog
+[submodule "Raidriarch/vendor/GLFW"]
+	path = Raidriarch/vendor/GLFW
+	url = https://github.com/TheCherno/glfw
