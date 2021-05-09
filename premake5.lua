@@ -10,6 +10,12 @@ workspace "Raidriarch"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
+-- Include directories relative to root folder (solution directory)
+IncludeDir = {}
+IncludeDir["GLFW"] = "Raidriarch/vendor/GLFW/include"
+
+include "Raidriarch/vendor/GLFW"
+
 project "Raidriarch"
 	location "Raidriarch"
 	kind "SharedLib"
@@ -29,7 +35,15 @@ project "Raidriarch"
 
 	includedirs
 	{
-		"%{prj.name}/vendor/spdlog/include"
+		"%{prj.name}/src",
+		"%{prj.name}/vendor/spdlog/include",
+		"%{IncludeDir.GLFW}"
+	}
+
+	links 
+	{ 
+		"GLFW",
+		"opengl32.lib"
 	}
 
 	filter "system:windows"
@@ -50,14 +64,17 @@ project "Raidriarch"
 
 	filter "configurations:Debug"
 		defines "RAID_DEBUG"
+		buildoptions "/MDd"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "RAID_RELEASE"
+		buildoptions "/MD"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "RAID_DIST"
+		buildoptions "/MD"
 		optimize "On"
 
 project "Game"
@@ -97,12 +114,15 @@ project "Game"
 
 	filter "configurations:Debug"
 		defines "RAID_DEBUG"
+		buildoptions "/MDd"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "RAID_RELEASE"
+		buildoptions "/MD"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "RAID_DIST"
+		buildoptions "/MD"
 		optimize "On"

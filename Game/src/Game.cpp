@@ -1,4 +1,3 @@
-#include <raidpch.h>
 #include <Raidriarch.h>
 
 class Game : public Raid::App
