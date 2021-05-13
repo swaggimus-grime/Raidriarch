@@ -5,6 +5,8 @@
 #include "Core/Event/MouseEvent.h"
 #include "Core/Event/KeyEvent.h"
 
+#include <glad/glad.h>
+
 namespace Raid {
 
 	static bool s_GLFWInitialized = false;
@@ -34,13 +36,18 @@ namespace Raid {
 			// TODO: glfwTerminate on system shutdown
 			int success = glfwInit();
 			RAID_CORE_ASSERT(success, "Could not intialize GLFW!");
-
+			glfwSetErrorCallback([](int error, const char* desc) {
+					RAID_CORE_ERROR("GLFW ERROR ({0}): {1}", error, desc);
+				});
 			s_GLFWInitialized = true;
 		}
 
-
 		m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, m_Data.Title.c_str(), nullptr, nullptr);
 		glfwMakeContextCurrent(m_Window);
+
+		RAID_CORE_ASSERT(gladLoadGLLoader((GLADloadproc)glfwGetProcAddress), 
+			"Failed to initialize Glad");
+
 		glfwSetWindowUserPointer(m_Window, &m_Data);
 		SetVSync(true);
 
@@ -132,7 +139,7 @@ namespace Raid {
 		glfwDestroyWindow(m_Window);
 	}
 
-	void GLFW_Window::Update()
+	void GLFW_Window::OnUpdate()
 	{
 		glfwPollEvents();
 		glfwSwapBuffers(m_Window);

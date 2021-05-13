@@ -1,0 +1,2 @@
+C:\Users\hunte\source\repos\Raidriarch\Raidriarch\vendor\Glad\bin\Debug-windows-x86_64\Glad\Glad.pdb
+C:\Users\hunte\source\repos\Raidriarch\Raidriarch\vendor\Glad\bin-int\Debug-windows-x86_64\Glad\Glad.pdb

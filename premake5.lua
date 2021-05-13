@@ -13,8 +13,10 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 -- Include directories relative to root folder (solution directory)
 IncludeDir = {}
 IncludeDir["GLFW"] = "Raidriarch/vendor/GLFW/include"
+IncludeDir["Glad"] = "Raidriarch/vendor/Glad/include"
 
 include "Raidriarch/vendor/GLFW"
+include "Raidriarch/vendor/Glad"
 
 project "Raidriarch"
 	location "Raidriarch"
@@ -37,12 +39,14 @@ project "Raidriarch"
 	{
 		"%{prj.name}/src",
 		"%{prj.name}/vendor/spdlog/include",
-		"%{IncludeDir.GLFW}"
+		"%{IncludeDir.GLFW}",
+		"%{IncludeDir.Glad}"
 	}
 
 	links 
 	{ 
 		"GLFW",
+		"Glad",
 		"opengl32.lib"
 	}
 
@@ -54,7 +58,8 @@ project "Raidriarch"
 		defines
 		{
 			"RAID_PLATFORM_WINDOWS",
-			"RAID_BUILD_DLL"
+			"RAID_BUILD_DLL",
+			"GLFW_INCLUDE_NONE"
 		}
 
 		postbuildcommands

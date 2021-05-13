@@ -9,7 +9,7 @@ namespace Raid {
 		GLFW_Window(const WindowProps& props);
 		virtual ~GLFW_Window();
 
-		void Update() override;
+		void OnUpdate() override;
 
 		inline unsigned int GetWidth() const override;
 		inline unsigned int GetHeight() const override;

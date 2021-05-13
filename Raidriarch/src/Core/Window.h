@@ -26,7 +26,7 @@ namespace Raid {
 
 		virtual ~Window() {}
 
-		virtual void Update() = 0;
+		virtual void OnUpdate() = 0;
 
 		virtual void SetEventCallback(const EventCallbackFn& callback) = 0;
 		virtual inline unsigned int GetWidth() const = 0;

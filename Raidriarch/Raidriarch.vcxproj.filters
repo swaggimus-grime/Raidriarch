@@ -4,6 +4,9 @@
     <Filter Include="Core">
       <UniqueIdentifier>{2EB4837C-1AEB-840D-C3D7-6A10AFED000F}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Core\Event">
+      <UniqueIdentifier>{FF1F37CD-EBD7-781A-54DF-517640B6130B}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Window">
       <UniqueIdentifier>{3DEA79DA-298C-A4B0-1247-B804FE872B01}</UniqueIdentifier>
     </Filter>
@@ -18,6 +21,24 @@
     <ClInclude Include="src\Core\EntryPoint.h">
       <Filter>Core</Filter>
     </ClInclude>
+    <ClInclude Include="src\Core\Event\AppEvent.h">
+      <Filter>Core\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\Event\Event.h">
+      <Filter>Core\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\Event\KeyEvent.h">
+      <Filter>Core\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\Event\MouseEvent.h">
+      <Filter>Core\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\Layer.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\LayerStack.h">
+      <Filter>Core</Filter>
+    </ClInclude>
     <ClInclude Include="src\Core\Log.h">
       <Filter>Core</Filter>
     </ClInclude>
@@ -29,13 +50,15 @@
       <Filter>Window</Filter>
     </ClInclude>
     <ClInclude Include="src\raidpch.h" />
-    <ClInclude Include="src\Core\Event\Event.h" />
-    <ClInclude Include="src\Core\Event\KeyEvent.h" />
-    <ClInclude Include="src\Core\Event\MouseEvent.h" />
-    <ClInclude Include="src\Core\Event\AppEvent.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Core\App.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Core\Layer.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Core\LayerStack.cpp">
       <Filter>Core</Filter>
     </ClCompile>
     <ClCompile Include="src\Core\Log.cpp">

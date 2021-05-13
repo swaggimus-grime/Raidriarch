@@ -6,11 +6,6 @@ namespace Raid {
 
 	#define BIND_EVENT_FN(x) std::bind(&App::x, this, std::placeholders::_1)
 
-	static void GLFWErrorCallback(int error, const char* description)
-	{
-		RAID_CORE_ERROR("GLFW Error ({0}): {1}", error, description);
-	}
-
 	App::App()
 	{
 		m_Window = std::unique_ptr<Window>(Window::Create());
@@ -26,7 +21,10 @@ namespace Raid {
 	{
 		while (m_Running)
 		{
-			m_Window->Update();
+			for (Layer* layer : m_LayerStack)
+				layer->OnUpdate();
+
+			m_Window->OnUpdate();
 		}
 	}
 
@@ -36,6 +34,22 @@ namespace Raid {
 		dispatcher.Dispatch<WindowCloseEvent>(BIND_EVENT_FN(OnWindowClose));
 
 		RAID_CORE_TRACE("{0}", e);
+
+		for (auto i = m_LayerStack.end(); i != m_LayerStack.begin();) {
+			(*--i)->OnEvent(e);
+			if (e.Handled)
+				break;
+		}
+	}
+
+	void App::PushLayer(Layer* layer)
+	{
+		m_LayerStack.PushLayer(layer);
+	}
+
+	void App::PushOverlay(Layer* layer)
+	{
+		m_LayerStack.PushOverlay(layer);
 	}
 
 	bool App::OnWindowClose(WindowCloseEvent& e)
