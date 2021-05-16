@@ -4,10 +4,10 @@
 #include <GLFW/glfw3.h>
 
 namespace Raid {
-	class GLFW_Window : public Window {
+	class WindowsWindow : public Window {
 	public:
-		GLFW_Window(const WindowProps& props);
-		virtual ~GLFW_Window();
+		WindowsWindow(const WindowProps& props);
+		virtual ~WindowsWindow();
 
 		void OnUpdate() override;
 

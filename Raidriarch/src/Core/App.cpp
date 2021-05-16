@@ -1,13 +1,19 @@
 #include "raidpch.h"
 #include "App.h"
 
+#include <glad/glad.h>
 
 namespace Raid {
 
-	#define BIND_EVENT_FN(x) std::bind(&App::x, this, std::placeholders::_1)
+#define BIND_EVENT_FN(x) std::bind(&App::x, this, std::placeholders::_1)
+
+	App* App::m_Instance = nullptr;
 
 	App::App()
 	{
+		RAID_CORE_ASSERT(!m_Instance, "App already exists!");
+		m_Instance = this;
+
 		m_Window = std::unique_ptr<Window>(Window::Create());
 		m_Window->SetEventCallback(BIND_EVENT_FN(OnEvent));
 	}
@@ -21,6 +27,9 @@ namespace Raid {
 	{
 		while (m_Running)
 		{
+			glClearColor(1, 0, 1, 1);
+			glClear(GL_COLOR_BUFFER_BIT);
+
 			for (Layer* layer : m_LayerStack)
 				layer->OnUpdate();
 
@@ -45,11 +54,13 @@ namespace Raid {
 	void App::PushLayer(Layer* layer)
 	{
 		m_LayerStack.PushLayer(layer);
+		layer->OnAttach();
 	}
 
 	void App::PushOverlay(Layer* layer)
 	{
 		m_LayerStack.PushOverlay(layer);
+		layer->OnAttach();
 	}
 
 	bool App::OnWindowClose(WindowCloseEvent& e)

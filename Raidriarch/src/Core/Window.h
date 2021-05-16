@@ -1,7 +1,7 @@
 #pragma once
 
 #include "raidpch.h"
-#include "Event/Event.h"
+#include "Events/Event.h"
 #include "Core/Core.h"
 
 namespace Raid {

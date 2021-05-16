@@ -1,9 +1,9 @@
 #include "raidpch.h"
-#include "GLFW_Window.h"
+#include "WindowsWindow.h"
 
-#include "Core/Event/AppEvent.h"
-#include "Core/Event/MouseEvent.h"
-#include "Core/Event/KeyEvent.h"
+#include "Core/Events/AppEvent.h"
+#include "Core/Events/MouseEvent.h"
+#include "Core/Events/KeyEvent.h"
 
 #include <glad/glad.h>
 
@@ -12,20 +12,20 @@ namespace Raid {
 	static bool s_GLFWInitialized = false;
 
 	Window* Window::Create(const WindowProps& props) {
-		return new GLFW_Window(props);
+		return new WindowsWindow(props);
 	}
 
-	GLFW_Window::GLFW_Window(const WindowProps& props)
+	WindowsWindow::WindowsWindow(const WindowProps& props)
 	{
 		Init(props);
 	}
 
-	Raid::GLFW_Window::~GLFW_Window()
+	Raid::WindowsWindow::~WindowsWindow()
 	{
 		Shutdown();
 	}
 
-	void GLFW_Window::Init(const WindowProps& props)
+	void WindowsWindow::Init(const WindowProps& props)
 	{
 		m_Data.Title = props.Title;
 		m_Data.Width = props.Width;
@@ -45,8 +45,8 @@ namespace Raid {
 		m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, m_Data.Title.c_str(), nullptr, nullptr);
 		glfwMakeContextCurrent(m_Window);
 
-		RAID_CORE_ASSERT(gladLoadGLLoader((GLADloadproc)glfwGetProcAddress), 
-			"Failed to initialize Glad");
+		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
+		RAID_CORE_ASSERT(status, "Failed to initialize Glad!");
 
 		glfwSetWindowUserPointer(m_Window, &m_Data);
 		SetVSync(true);
@@ -96,6 +96,14 @@ namespace Raid {
 				}
 			});
 
+		glfwSetCharCallback(m_Window, [](GLFWwindow* window, unsigned int keycode) 
+			{
+				WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
+				KeyTypedEvent event(keycode);
+				data.EventCallback(event);
+			}
+		);
+
 		glfwSetMouseButtonCallback(m_Window, [](GLFWwindow* window, int button, int action, int mods)
 			{
 				WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
@@ -134,26 +142,26 @@ namespace Raid {
 			});
 	}
 
-	void GLFW_Window::Shutdown()
+	void WindowsWindow::Shutdown()
 	{
 		glfwDestroyWindow(m_Window);
 	}
 
-	void GLFW_Window::OnUpdate()
+	void WindowsWindow::OnUpdate()
 	{
 		glfwPollEvents();
 		glfwSwapBuffers(m_Window);
 	} 
 
-	unsigned int GLFW_Window::GetWidth() const
+	unsigned int WindowsWindow::GetWidth() const
 	{
 		return m_Data.Width;
 	}
-	unsigned int GLFW_Window::GetHeight() const
+	unsigned int WindowsWindow::GetHeight() const
 	{
 		return m_Data.Height;
 	}
-	void GLFW_Window::SetVSync(bool enabled)
+	void WindowsWindow::SetVSync(bool enabled)
 	{
 		if (enabled)
 			glfwSwapInterval(1);
@@ -163,7 +171,7 @@ namespace Raid {
 		m_Data.VSync = enabled;
 	}
 
-	bool GLFW_Window::IsVSync() const
+	bool WindowsWindow::IsVSync() const
 	{
 		return m_Data.VSync;
 	}

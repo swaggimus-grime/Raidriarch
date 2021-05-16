@@ -10,6 +10,10 @@
 	#error Raidriarch only supports Windows!
 #endif
 
+#ifdef RAID_DEBUG
+	#define RAID_ENABLE_ASSERTS
+#endif
+
 #ifdef RAID_ENABLE_ASSERTS
 	#define RAID_ASSERT(x, ...) { if(!(x)) { RAID_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }
 	#define RAID_CORE_ASSERT(x, ...) { if(!(x)) { RAID_CORE_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }
@@ -18,6 +22,6 @@
 	#define RAID_CORE_ASSERT(x, ...)
 #endif
 
-
+#define BIND_EVENT_FN(fn) std::bind(&fn, this, std::placeholders::_1)
 
 #define BIT(x) (1 << x)

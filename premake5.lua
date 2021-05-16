@@ -1,5 +1,6 @@
 workspace "Raidriarch"
 	architecture "x64"
+	startproject "Game"
 
 	configurations
 	{
@@ -14,14 +15,20 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 IncludeDir = {}
 IncludeDir["GLFW"] = "Raidriarch/vendor/GLFW/include"
 IncludeDir["Glad"] = "Raidriarch/vendor/Glad/include"
+IncludeDir["ImGui"] = "Raidriarch/vendor/imgui"
 
-include "Raidriarch/vendor/GLFW"
-include "Raidriarch/vendor/Glad"
+group "Dependencies"
+	include "Raidriarch/vendor/GLFW"
+	include "Raidriarch/vendor/Glad"
+	include "Raidriarch/vendor/imgui"
+
+group ""
 
 project "Raidriarch"
 	location "Raidriarch"
 	kind "SharedLib"
 	language "C++"
+	staticruntime "off"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -40,19 +47,20 @@ project "Raidriarch"
 		"%{prj.name}/src",
 		"%{prj.name}/vendor/spdlog/include",
 		"%{IncludeDir.GLFW}",
-		"%{IncludeDir.Glad}"
+		"%{IncludeDir.Glad}",
+		"%{IncludeDir.ImGui}"
 	}
 
 	links 
 	{ 
 		"GLFW",
 		"Glad",
+		"ImGui",
 		"opengl32.lib"
 	}
 
 	filter "system:windows"
 		cppdialect "C++17"
-		staticruntime "On"
 		systemversion "latest"
 
 		defines
@@ -64,28 +72,29 @@ project "Raidriarch"
 
 		postbuildcommands
 		{
-			("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Game")
+			("{COPY} %{cfg.buildtarget.relpath} \"../bin/" .. outputdir .. "/Game/\"")
 		}
 
 	filter "configurations:Debug"
 		defines "RAID_DEBUG"
-		buildoptions "/MDd"
+		runtime "Debug"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "RAID_RELEASE"
-		buildoptions "/MD"
+		runtime "Release"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "RAID_DIST"
-		buildoptions "/MD"
+		runtime "Release"
 		optimize "On"
 
 project "Game"
 	location "Game"
 	kind "ConsoleApp"
 	language "C++"
+	staticruntime "off"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -109,7 +118,6 @@ project "Game"
 
 	filter "system:windows"
 		cppdialect "C++17"
-		staticruntime "On"
 		systemversion "latest"
 
 		defines
@@ -119,15 +127,15 @@ project "Game"
 
 	filter "configurations:Debug"
 		defines "RAID_DEBUG"
-		buildoptions "/MDd"
+		runtime "Debug"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "RAID_RELEASE"
-		buildoptions "/MD"
+		runtime "Release"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "RAID_DIST"
-		buildoptions "/MD"
+		runtime "Release"
 		optimize "On"
