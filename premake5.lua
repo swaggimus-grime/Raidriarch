@@ -16,12 +16,12 @@ IncludeDir = {}
 IncludeDir["GLFW"] = "Raidriarch/vendor/GLFW/include"
 IncludeDir["Glad"] = "Raidriarch/vendor/Glad/include"
 IncludeDir["ImGui"] = "Raidriarch/vendor/imgui"
+IncludeDir["glm"] = "Raidriarch/vendor/glm"
 
 group "Dependencies"
 	include "Raidriarch/vendor/GLFW"
 	include "Raidriarch/vendor/Glad"
 	include "Raidriarch/vendor/imgui"
-
 group ""
 
 project "Raidriarch"
@@ -39,7 +39,9 @@ project "Raidriarch"
 	files
 	{
 		"%{prj.name}/src/**.h",
-		"%{prj.name}/src/**.cpp"
+		"%{prj.name}/src/**.cpp",
+		"%{prj.name}/vendor/glm/glm/**.hpp",
+		"%{prj.name}/vendor/glm/glm/**.inl"
 	}
 
 	includedirs
@@ -48,7 +50,8 @@ project "Raidriarch"
 		"%{prj.name}/vendor/spdlog/include",
 		"%{IncludeDir.GLFW}",
 		"%{IncludeDir.Glad}",
-		"%{IncludeDir.ImGui}"
+		"%{IncludeDir.ImGui}",
+		"%{IncludeDir.glm}"
 	}
 
 	links 
@@ -108,7 +111,8 @@ project "Game"
 	includedirs
 	{
 		"Raidriarch/vendor/spdlog/include",
-		"Raidriarch/src"
+		"Raidriarch/src",
+		"%{IncludeDir.glm}"
 	}
 
 	links
