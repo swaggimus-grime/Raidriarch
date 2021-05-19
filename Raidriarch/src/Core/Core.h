@@ -1,10 +1,14 @@
 #pragma once
 
 #ifdef RAID_PLATFORM_WINDOWS
-	#ifdef RAID_BUILD_DLL
-		#define RAID_API __declspec(dllexport)
+	#if RAID_DYNAMIC_LINK
+		#ifdef RAID_BUILD_DLL
+			#define RAID_API __declspec(dllexport)
+		#else
+			#define RAID_API __declspec(dllimport)
+		#endif
 	#else
-		#define RAID_API __declspec(dllimport)
+		#define RAID_API
 	#endif
 #else
 	#error Raidriarch only supports Windows!
