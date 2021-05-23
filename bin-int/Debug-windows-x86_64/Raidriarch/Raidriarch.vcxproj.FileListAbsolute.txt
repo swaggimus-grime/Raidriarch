@@ -1,2 +1,0 @@
-C:\Users\hunte\source\repos\Raidriarch\bin\Debug-windows-x86_64\Raidriarch\Raidriarch.pdb
-C:\Users\hunte\source\repos\Raidriarch\bin-int\Debug-windows-x86_64\Raidriarch\Raidriarch.pdb
