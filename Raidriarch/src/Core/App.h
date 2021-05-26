@@ -11,6 +11,8 @@
 #include "Renderer/Buffer.h"
 #include "Renderer/VertexArray.h"
 
+#include "Renderer/OrthographicCamera.h"
+
 namespace Raid {
 
 	class RAID_API App
@@ -37,14 +39,8 @@ namespace Raid {
 		bool m_Running = true;
 		LayerStack m_LayerStack;
 
-		std::shared_ptr<VertexBuffer> m_VertexBuffer;
-		std::shared_ptr<IndexBuffer> m_IndexBuffer;
-		std::shared_ptr<Shader> m_Shader;
-		std::shared_ptr<VertexArray> m_VertexArray;
-
-		std::shared_ptr<Shader> m_BlueShader;
-		std::shared_ptr<VertexArray> m_SquareVA;
-
+		float m_LastFrameTime = 0.0f;
+	private:
 		static App* s_Instance;
 	};
 

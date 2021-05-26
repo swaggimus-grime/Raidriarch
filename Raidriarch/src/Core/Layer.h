@@ -2,6 +2,7 @@
 
 #include "Core/Core.h"
 #include "Core/Events/Event.h"
+#include "Core/Timestep.h"
 
 namespace Raid {
 
@@ -13,7 +14,7 @@ namespace Raid {
 
 		virtual void OnAttach() {}
 		virtual void OnDetach() {}
-		virtual void OnUpdate() {}
+		virtual void OnUpdate(Timestep ts) {}
 		virtual void OnImGuiRender() {}
 		virtual void OnEvent(Event& event) {}
 
