@@ -14,8 +14,8 @@ namespace Raid {
 		inline static std::shared_ptr<spdlog::logger>& GetCoreLogger() { return CoreLogger; }
 		inline static std::shared_ptr<spdlog::logger>& GetClientLogger() { return ClientLogger; }
 	private:
-		static std::shared_ptr<spdlog::logger> CoreLogger;
-		static std::shared_ptr<spdlog::logger> ClientLogger;
+		static Ref<spdlog::logger> CoreLogger;
+		static Ref<spdlog::logger> ClientLogger;
 	};
 
 }

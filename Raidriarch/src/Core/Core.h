@@ -1,5 +1,7 @@
 #pragma once
 
+#include <memory>
+
 #ifdef RAID_PLATFORM_WINDOWS
 	#if RAID_DYNAMIC_LINK
 		#ifdef RAID_BUILD_DLL
@@ -29,3 +31,13 @@
 #define BIND_EVENT_FN(fn) std::bind(&fn, this, std::placeholders::_1)
 
 #define BIT(x) (1 << x)
+
+namespace Raid {
+
+	template<typename T>
+	using Scope = std::unique_ptr<T>;
+
+	template<typename T>
+	using Ref = std::shared_ptr<T>;
+
+}
