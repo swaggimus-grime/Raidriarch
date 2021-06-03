@@ -1,14 +1,14 @@
 #pragma once
 
-#include "Core/Window.h"
-#include "Core/Renderer/GraphicsContext.h"
+#include "Raid/Core/Window.h"
+#include "Raid/Renderer/GraphicsContext.h"
 #include <GLFW/glfw3.h>
 
 namespace Raid {
 	class WindowsWindow : public Window {
 	public:
 		WindowsWindow(const WindowProps& props);
-		virtual ~WindowsWindow();
+		virtual ~WindowsWindow() override;
 
 		void OnUpdate() override;
 

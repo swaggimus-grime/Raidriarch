@@ -18,6 +18,7 @@ IncludeDir["Glad"] = "Raidriarch/vendor/Glad/include"
 IncludeDir["ImGui"] = "Raidriarch/vendor/imgui"
 IncludeDir["glm"] = "Raidriarch/vendor/glm"
 IncludeDir["stb"] = "Raidriarch/vendor/stb"
+IncludeDir["Vulkan"] = "Raidriarch/vendor/Vulkan/include"
 
 group "Dependencies"
 	include "Raidriarch/vendor/GLFW"
@@ -61,15 +62,19 @@ project "Raidriarch"
 		"%{IncludeDir.Glad}",
 		"%{IncludeDir.ImGui}",
 		"%{IncludeDir.glm}",
-		"%{IncludeDir.stb}"
+		"%{IncludeDir.stb}",
+		"%{IncludeDir.Vulkan}"
 	}
+
+	libdirs { "Raidriarch/vendor/Vulkan/lib" }
 
 	links 
 	{ 
 		"GLFW",
 		"Glad",
 		"ImGui",
-		"opengl32.lib"
+		"opengl32.lib",
+		"vulkan-1.lib"
 	}
 
 	filter "system:windows"

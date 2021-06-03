@@ -1,4 +1,5 @@
 #include <Raidriarch.h>
+#include <Raid/Core/EntryPoint.h>
 
 #include "Platform/OpenGL/OpenGLShader.h"
 
@@ -7,13 +8,15 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
+#include "Game2D.h"
+
 class ExampleLayer : public Raid::Layer
 {
 public:
 	ExampleLayer()
-		: Layer("Example"), m_Camera(-1.6f, 1.6f, -0.9f, 0.9f), m_CameraPosition(0.0f)
+		: Layer("Example"), m_CameraController(1280.0f / 720.0f)
 	{
-		m_VertexArray.reset(Raid::VertexArray::Create());
+		m_VertexArray = Raid::VertexArray::Create();
 
 		float vertices[3 * 7] = {
 			-0.5f, -0.5f, 0.0f, 0.8f, 0.2f, 0.8f, 1.0f,
@@ -35,7 +38,7 @@ public:
 		indexBuffer.reset(Raid::IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t)));
 		m_VertexArray->SetIndexBuffer(indexBuffer);
 
-		m_SquareVA.reset(Raid::VertexArray::Create());
+		m_SquareVA = Raid::VertexArray::Create();
 
 		float squareVertices[5 * 4] = {
 			-0.5f, -0.5f, 0.0f, 0.0f, 0.0f,
@@ -57,13 +60,53 @@ public:
 		squareIB.reset(Raid::IndexBuffer::Create(squareIndices, sizeof(squareIndices) / sizeof(uint32_t)));
 		m_SquareVA->SetIndexBuffer(squareIB);
 
+		std::string vertexSrc = R"(
+			#version 330 core
+			
+			layout(location = 0) in vec3 a_Position;
+			layout(location = 1) in vec4 a_Color;
+
+			uniform mat4 u_ViewProjection;
+			uniform mat4 u_Transform;
+
+			out vec3 v_Position;
+			out vec4 v_Color;
+
+			void main()
+			{
+				v_Position = a_Position;
+				v_Color = a_Color;
+				gl_Position = u_ViewProjection * u_Transform * vec4(a_Position, 1.0);	
+			}
+		)";
+
+		std::string fragmentSrc = R"(
+			#version 330 core
+			
+			layout(location = 0) out vec4 color;
+
+			in vec3 v_Position;
+			in vec4 v_Color;
+
+			void main()
+			{
+				color = vec4(v_Position * 0.5 + 0.5, 1.0);
+				color = v_Color;
+			}
+		)";
+
+		m_Shader = Raid::Shader::Create("VertexPosColor", vertexSrc, fragmentSrc);
+
 		std::string flatColorShaderVertexSrc = R"(
 			#version 330 core
 			
 			layout(location = 0) in vec3 a_Position;
+
 			uniform mat4 u_ViewProjection;
 			uniform mat4 u_Transform;
+
 			out vec3 v_Position;
+
 			void main()
 			{
 				v_Position = a_Position;
@@ -75,51 +118,38 @@ public:
 			#version 330 core
 			
 			layout(location = 0) out vec4 color;
+
 			in vec3 v_Position;
 			
 			uniform vec3 u_Color;
+
 			void main()
 			{
 				color = vec4(u_Color, 1.0);
 			}
 		)";
 
-		m_FlatColorShader.reset(Raid::Shader::Create(flatColorShaderVertexSrc, flatColorShaderFragmentSrc));
+		m_FlatColorShader = Raid::Shader::Create("FlatColor", flatColorShaderVertexSrc, flatColorShaderFragmentSrc);
 
-		m_TextureShader.reset(Raid::Shader::Create("assets/shaders/Texture.glsl"));
+		auto textureShader = m_ShaderLibrary.Load("assets/shaders/Texture.glsl");
 
-		m_Texture = Raid::Texture2D::Create("assets/textures/lil_b.png");
-		m_ChernoLogoTexture = Raid::Texture2D::Create("assets/textures/captain_falcon.png");
+		m_Texture = Raid::Texture2D::Create("assets/textures/captain_falcon.png");
+		m_ChernoLogoTexture = Raid::Texture2D::Create("assets/textures/lil_b.png");
 
-		std::dynamic_pointer_cast<Raid::OpenGLShader>(m_TextureShader)->Bind();
-		std::dynamic_pointer_cast<Raid::OpenGLShader>(m_TextureShader)->UploadUniformInt("u_Texture", 0);
-
+		std::dynamic_pointer_cast<Raid::OpenGLShader>(textureShader)->Bind();
+		std::dynamic_pointer_cast<Raid::OpenGLShader>(textureShader)->UploadUniformInt("u_Texture", 0);
 	}
 
 	void OnUpdate(Raid::Timestep ts) override
 	{
-		if (Raid::Input::IsKeyPressed(RAID_KEY_LEFT))
-			m_CameraPosition.x -= m_CameraMoveSpeed * ts;
-		else if (Raid::Input::IsKeyPressed(RAID_KEY_RIGHT))
-			m_CameraPosition.x += m_CameraMoveSpeed * ts;
+		// Update
+		m_CameraController.OnUpdate(ts);
 
-		if (Raid::Input::IsKeyPressed(RAID_KEY_UP))
-			m_CameraPosition.y += m_CameraMoveSpeed * ts;
-		else if (Raid::Input::IsKeyPressed(RAID_KEY_DOWN))
-			m_CameraPosition.y -= m_CameraMoveSpeed * ts;
-
-		if (Raid::Input::IsKeyPressed(RAID_KEY_A))
-			m_CameraRotation += m_CameraRotationSpeed * ts;
-		if (Raid::Input::IsKeyPressed(RAID_KEY_D))
-			m_CameraRotation -= m_CameraRotationSpeed * ts;
-
+		// Render
 		Raid::RenderCommand::SetClearColor({ 0.1f, 0.1f, 0.1f, 1 });
 		Raid::RenderCommand::Clear();
 
-		m_Camera.SetPosition(m_CameraPosition);
-		m_Camera.SetRotation(m_CameraRotation);
-
-		Raid::Renderer::BeginScene(m_Camera);
+		Raid::Renderer::BeginScene(m_CameraController.GetCamera());
 
 		glm::mat4 scale = glm::scale(glm::mat4(1.0f), glm::vec3(0.1f));
 
@@ -136,11 +166,12 @@ public:
 			}
 		}
 
-		m_Texture->Bind();
-		Raid::Renderer::Submit(m_TextureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
-		m_ChernoLogoTexture->Bind();
-		Raid::Renderer::Submit(m_TextureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
+		auto textureShader = m_ShaderLibrary.Get("Texture");
 
+		m_Texture->Bind();
+		Raid::Renderer::Submit(textureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
+		m_ChernoLogoTexture->Bind();
+		Raid::Renderer::Submit(textureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
 
 		// Triangle
 		// Raid::Renderer::Submit(m_Shader, m_VertexArray);
@@ -155,24 +186,21 @@ public:
 		ImGui::End();
 	}
 
-	void OnEvent(Raid::Event& event) override
+	void OnEvent(Raid::Event& e) override
 	{
+		m_CameraController.OnEvent(e);
 	}
 private:
+	Raid::ShaderLibrary m_ShaderLibrary;
+	Raid::Ref<Raid::Shader> m_Shader;
 	Raid::Ref<Raid::VertexArray> m_VertexArray;
 
-	Raid::Ref<Raid::Shader> m_FlatColorShader, m_TextureShader;
+	Raid::Ref<Raid::Shader> m_FlatColorShader;
 	Raid::Ref<Raid::VertexArray> m_SquareVA;
 
 	Raid::Ref<Raid::Texture2D> m_Texture, m_ChernoLogoTexture;
 
-	Raid::OrthographicCamera m_Camera;
-	glm::vec3 m_CameraPosition;
-	float m_CameraMoveSpeed = 5.0f;
-
-	float m_CameraRotation = 0.0f;
-	float m_CameraRotationSpeed = 180.0f;
-
+	Raid::OrthographicCameraController m_CameraController;
 	glm::vec3 m_SquareColor = { 0.2f, 0.3f, 0.8f };
 };
 
@@ -181,14 +209,13 @@ class Game : public Raid::App
 public:
 	Game()
 	{
-		PushLayer(new ExampleLayer());
+		// PushLayer(new ExampleLayer());
+		PushLayer(new Game2D());
 	}
 
 	~Game()
 	{
-
 	}
-
 };
 
 Raid::App* Raid::CreateApp()

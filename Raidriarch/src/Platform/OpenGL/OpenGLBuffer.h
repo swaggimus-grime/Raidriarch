@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Core/Renderer/Buffer.h"
+#include "Raid/Renderer/Buffer.h"
 
 namespace Raid {
 	class OpenGLVertexBuffer : public VertexBuffer {

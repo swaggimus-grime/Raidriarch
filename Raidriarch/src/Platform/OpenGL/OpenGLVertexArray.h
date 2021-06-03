@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Core/Renderer/VertexArray.h"
+#include "Raid/Renderer/VertexArray.h"
 
 namespace Raid {
 	class OpenGLVertexArray : public VertexArray {

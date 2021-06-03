@@ -1,9 +1,9 @@
 #include "raidpch.h"
 #include "WindowsWindow.h"
 
-#include "Core/Events/AppEvent.h"
-#include "Core/Events/MouseEvent.h"
-#include "Core/Events/KeyEvent.h"
+#include "Raid/Events/AppEvent.h"
+#include "Raid/Events/MouseEvent.h"
+#include "Raid/Events/KeyEvent.h"
 
 #include "Platform/OpenGL/OpenGLContext.h"
 

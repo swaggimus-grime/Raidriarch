@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Core/Renderer/Texture.h"
+#include "Raid/Renderer/Texture.h"
 
 namespace Raid {
 	class OpenGLTexture2D : public Texture2D

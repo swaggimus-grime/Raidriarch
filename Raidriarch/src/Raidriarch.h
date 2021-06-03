@@ -1,29 +1,27 @@
 #pragma once
 
-// Core
-#include "Core/App.h"
-#include "Core/Log.h"
-#include "Core/Layer.h"
-#include "Core/ImGui/ImGuiLayer.h"
-#include "Core/Core/Timestep.h"
-#include "Core/Input.h"
+//---Core---//
+#include "Raid/Core/App.h"
+#include "Raid/Core/Log.h"
+#include "Raid/Core/Layer.h"
+#include "Raid/Core/Timestep.h"
+#include "Raid/Core/Input.h"
 
-//Codes
-#include "Core/KeyCodes.h"
-#include "Core/MouseButtonCodes.h"
+//---Codes---//
+#include "Raid/Core/KeyCodes.h"
+#include "Raid/Core/MouseButtonCodes.h"
 
-//Window
-#include "Core/Window.h"
+//---Window---//
+#include "Raid/Core/Window.h"
 
-// ---Entry Point---------------------
-#include "Core/EntryPoint.h"
-// -----------------------------------
+//---Renderer---//
+#include "Raid/Renderer/Renderer.h"
+#include "Raid/Renderer/RenderCommand.h"
+#include "Raid/Renderer/Buffer.h"
+#include "Raid/Renderer/Shader.h"
+#include "Raid/Renderer/VertexArray.h"
+#include "Raid/Renderer/OrthographicCamera.h"
+#include "Raid/Renderer/Texture.h"
 
-// ---Renderer------------------------
-#include "Core/Renderer/Renderer.h"
-#include "Core/Renderer/RenderCommand.h"
-#include "Core/Renderer/Buffer.h"
-#include "Core/Renderer/Shader.h"
-#include "Core/Renderer/VertexArray.h"
-#include "Core/Renderer/OrthographicCamera.h"
-#include "Core/Renderer/Texture.h"
+//---ImGui---//
+#include "Raid/ImGui/ImGuiLayer.h"
