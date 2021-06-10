@@ -1,6 +1,7 @@
 #include "raidpch.h"
 #include "Renderer.h"
 
+#include "Renderer2D.h"
 #include "Platform/OpenGL/OpenGLShader.h"
 
 namespace Raid {
@@ -9,6 +10,7 @@ namespace Raid {
 	void Renderer::Init()
 	{
 		RenderCommand::Init();
+		Renderer2D::Init();
 	}
 
 	void Renderer::BeginScene(OrthographicCamera& camera)

@@ -20,9 +20,9 @@ namespace Raid {
 
         std::vector<const char*> extensions(glfwExtensions, glfwExtensions + glfwExtensionCount);
 
-        //if (enableValidationLayers) {
-        //    extensions.push_back(VK_EXT_DEBUG_UTILS_EXTENSION_NAME);
-        //}
+    #ifdef RAID_DEBUG
+        extensions.push_back(VK_EXT_DEBUG_UTILS_EXTENSION_NAME);
+    #endif
 
         return extensions;
     }
@@ -44,8 +44,9 @@ namespace Raid {
         uint32_t glfwExtensionCount = 0;
         const char** glfwExtensions;
         glfwExtensions = glfwGetRequiredInstanceExtensions(&glfwExtensionCount);
-        createInfo.enabledExtensionCount = m_ExtensionCount;
-        createInfo.ppEnabledExtensionNames = m_ExtensionNames;
+        auto extensions = getRequiredExtensions();
+        createInfo.enabledExtensionCount = static_cast<uint32_t>(extensions.size());
+        createInfo.ppEnabledExtensionNames = extensions.data();
 
     #ifdef RAID_DEBUG
         uint32_t layerCount;

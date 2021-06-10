@@ -16,6 +16,7 @@
 
 //---Renderer---//
 #include "Raid/Renderer/Renderer.h"
+#include "Raid/Renderer/Renderer2D.h"
 #include "Raid/Renderer/RenderCommand.h"
 #include "Raid/Renderer/Buffer.h"
 #include "Raid/Renderer/Shader.h"
