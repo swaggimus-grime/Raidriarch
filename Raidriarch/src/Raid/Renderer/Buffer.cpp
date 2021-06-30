@@ -6,27 +6,28 @@
 #include "Platform/OpenGL/OpenGLBuffer.h"
 
 namespace Raid {
-	VertexBuffer* VertexBuffer::Create(float* vertices, uint32_t size)
+	Ref<VertexBuffer> VertexBuffer::Create(uint32_t size, float* vertices)
 	{
 		switch (Renderer::GetAPI()) {
 		case RendererAPI::API::None:
 				RAID_CORE_ASSERT(false, "RendererAPI::None is currently not supported!");
 				return nullptr;
 			case RendererAPI::API::OpenGL:
-				return new OpenGLVertexBuffer(vertices, size);
+				return CreateRef<OpenGLVertexBuffer>(size, vertices);
 			default:
 				RAID_CORE_ASSERT(false, "Unknown RendererAPI!");
 				return nullptr;
 		}
 	}
-	IndexBuffer* IndexBuffer::Create(uint32_t* indices, uint32_t count)
+
+	Ref<IndexBuffer> IndexBuffer::Create(uint32_t* indices, uint32_t count)
 	{
 		switch (Renderer::GetAPI()) {
 		case RendererAPI::API::None:
 			RAID_CORE_ASSERT(false, "RendererAPI::None is currently not supported!");
 			return nullptr;
 		case RendererAPI::API::OpenGL:
-			return new OpenGLIndexBuffer(indices, count);
+			return CreateRef<OpenGLIndexBuffer>(indices, count);
 		default:
 			RAID_CORE_ASSERT(false, "Unknown RendererAPI!");
 			return nullptr;

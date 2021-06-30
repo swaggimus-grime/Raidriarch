@@ -11,8 +11,8 @@ namespace Raid {
 
 	static bool s_GLFWInitialized = false;
 
-	Window* Window::Create(const WindowProps& props) {
-		return new WindowsWindow(props);
+	Scope<Window> Window::Create(const WindowProps& props) {
+		return CreateScope<WindowsWindow>(props);
 	}
 
 	WindowsWindow::WindowsWindow(const WindowProps& props)

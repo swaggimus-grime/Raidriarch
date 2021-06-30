@@ -20,15 +20,23 @@ namespace Raid {
 
 		virtual const std::string& GetName() const override { return m_Name; }
 
-		void UploadUniformInt(const std::string& name, int value);
+		virtual void SetInt(const std::string& name, const int value) const override;
 
-		void UploadUniformFloat(const std::string& name, float value);
-		void UploadUniformFloat2(const std::string& name, const glm::vec2& value);
-		void UploadUniformFloat3(const std::string& name, const glm::vec3& value);
-		void UploadUniformFloat4(const std::string& name, const glm::vec4& value);
+		virtual void SetFloat(const std::string& name, const float value) const override;
+		virtual void SetFloat2(const std::string& name, const glm::vec2& vector) const override;
+		virtual void SetFloat3(const std::string& name, const glm::vec3& vector) const override;
+		virtual void SetFloat4(const std::string& name, const glm::vec4& vector) const override;
+		virtual void SetMat4(const std::string& name, const glm::mat4& matrix) const override;
 
-		void UploadUniformMat3(const std::string& name, const glm::mat3& matrix);
-		void UploadUniformMat4(const std::string& name, const glm::mat4& matrix);
+		void UploadUniformInt(const std::string& name, int value) const;
+
+		void UploadUniformFloat(const std::string& name, float value) const;
+		void UploadUniformFloat2(const std::string& name, const glm::vec2& vector) const;
+		void UploadUniformFloat3(const std::string& name, const glm::vec3& vector) const;
+		void UploadUniformFloat4(const std::string& name, const glm::vec4& vector) const;
+																				   
+		void UploadUniformMat3(const std::string& name, const glm::mat3& matrix) const;
+		void UploadUniformMat4(const std::string& name, const glm::mat4& matrix) const;
 
 	private:
 		std::string ReadFile(const std::string& filepath);

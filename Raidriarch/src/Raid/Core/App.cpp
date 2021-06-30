@@ -9,17 +9,17 @@
 
 namespace Raid {
 
-#define BIND_EVENT_FN(x) std::bind(&App::x, this, std::placeholders::_1)
-
 	App* App::s_Instance = nullptr;
 
 	App::App()
 	{
+		RAID_PROFILE_FUNCTION();
+
 		RAID_CORE_ASSERT(!s_Instance, "Application already exists!");
 		s_Instance = this;
 
-		m_Window = std::unique_ptr<Window>(Window::Create());
-		m_Window->SetEventCallback(BIND_EVENT_FN(OnEvent));
+		m_Window = Window::Create();
+		m_Window->SetEventCallback(BIND_EVENT_FN(App::OnEvent));
 
 		Renderer::Init();
 
@@ -30,6 +30,8 @@ namespace Raid {
 
 	App::~App()
 	{
+		RAID_PROFILE_FUNCTION();
+		Renderer::Shutdown();
 	}
 
 	void App::Run()
@@ -56,12 +58,13 @@ namespace Raid {
 	void App::OnEvent(Event& e)
 	{
 		EventDispatcher dispatcher(e);
-		dispatcher.Dispatch<WindowCloseEvent>(BIND_EVENT_FN(OnWindowClose));
+		dispatcher.Dispatch<WindowCloseEvent>(BIND_EVENT_FN(App::OnWindowClose));
+		dispatcher.Dispatch<WindowResizeEvent>(BIND_EVENT_FN(App::OnWindowResize));
 
 		RAID_CORE_TRACE("{0}", e);
 
-		for (auto i = m_LayerStack.end(); i != m_LayerStack.begin();) {
-			(*--i)->OnEvent(e);
+		for (auto i = m_LayerStack.rbegin(); i != m_LayerStack.rend(); i++) {
+			(*i)->OnEvent(e);
 			if (e.Handled)
 				break;
 		}
@@ -83,5 +86,17 @@ namespace Raid {
 	{
 		m_Running = false;
 		return true;
+	}
+
+	bool App::OnWindowResize(WindowResizeEvent& e)
+	{
+		if (e.GetWidth() == 0 || e.GetHeight() == 0)
+		{
+			m_Minimized = true;
+			return false;
+		}
+		m_Minimized = false;
+		Renderer::OnWindowResize(e.GetWidth(), e.GetHeight());
+		return false;
 	}
 }

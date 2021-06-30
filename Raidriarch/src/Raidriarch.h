@@ -22,6 +22,7 @@
 #include "Raid/Renderer/Shader.h"
 #include "Raid/Renderer/VertexArray.h"
 #include "Raid/Renderer/OrthographicCamera.h"
+#include "Raid/Renderer/PerspectiveCamera.h"
 #include "Raid/Renderer/Texture.h"
 
 //---ImGui---//

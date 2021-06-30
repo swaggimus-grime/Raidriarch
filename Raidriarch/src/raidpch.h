@@ -9,6 +9,8 @@
 
 #include "Raid/Core/Log.h"
 
+#include "Raid/Debug/Instrumentor.h"
+
 #if RAID_PLATFORM_WINDOWS
 	#include <Windows.h>
 #endif

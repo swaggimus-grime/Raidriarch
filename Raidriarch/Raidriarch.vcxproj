@@ -143,7 +143,6 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="src\Raid\Renderer\Renderer2D.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLBuffer.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLRendererAPI.h" />
@@ -151,6 +150,8 @@
     <ClInclude Include="src\Platform\OpenGL\OpenGLTexture.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLVertexArray.h" />
     <ClInclude Include="src\Platform\Vulkan\VulkanContext.h" />
+    <ClInclude Include="src\Platform\Vulkan\VulkanDevice.h" />
+    <ClInclude Include="src\Platform\Vulkan\VulkanRendererAPI.h" />
     <ClInclude Include="src\Platform\Windows\WindowsInput.h" />
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
     <ClInclude Include="src\Raid\Core\App.h" />
@@ -164,6 +165,7 @@
     <ClInclude Include="src\Raid\Core\MouseButtonCodes.h" />
     <ClInclude Include="src\Raid\Core\Timestep.h" />
     <ClInclude Include="src\Raid\Core\Window.h" />
+    <ClInclude Include="src\Raid\Debug\Instrumentor.h" />
     <ClInclude Include="src\Raid\Events\AppEvent.h" />
     <ClInclude Include="src\Raid\Events\Event.h" />
     <ClInclude Include="src\Raid\Events\KeyEvent.h" />
@@ -172,8 +174,10 @@
     <ClInclude Include="src\Raid\Renderer\Buffer.h" />
     <ClInclude Include="src\Raid\Renderer\GraphicsContext.h" />
     <ClInclude Include="src\Raid\Renderer\OrthographicCamera.h" />
+    <ClInclude Include="src\Raid\Renderer\PerspectiveCamera.h" />
     <ClInclude Include="src\Raid\Renderer\RenderCommand.h" />
     <ClInclude Include="src\Raid\Renderer\Renderer.h" />
+    <ClInclude Include="src\Raid\Renderer\Renderer2D.h" />
     <ClInclude Include="src\Raid\Renderer\RendererAPI.h" />
     <ClInclude Include="src\Raid\Renderer\Shader.h" />
     <ClInclude Include="src\Raid\Renderer\Texture.h" />
@@ -598,7 +602,6 @@
     <ClInclude Include="vendor\stb\stb_image.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Raid\Renderer\Renderer2D.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLBuffer.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLRendererAPI.cpp" />
@@ -606,6 +609,7 @@
     <ClCompile Include="src\Platform\OpenGL\OpenGLTexture.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLVertexArray.cpp" />
     <ClCompile Include="src\Platform\Vulkan\VulkanContext.cpp" />
+    <ClCompile Include="src\Platform\Vulkan\VulkanRendererAPI.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\Raid\Core\App.cpp" />
@@ -616,8 +620,10 @@
     <ClCompile Include="src\Raid\ImGui\ImGuiLayer.cpp" />
     <ClCompile Include="src\Raid\Renderer\Buffer.cpp" />
     <ClCompile Include="src\Raid\Renderer\OrthographicCamera.cpp" />
+    <ClCompile Include="src\Raid\Renderer\PerspectiveCamera.cpp" />
     <ClCompile Include="src\Raid\Renderer\RenderCommand.cpp" />
     <ClCompile Include="src\Raid\Renderer\Renderer.cpp" />
+    <ClCompile Include="src\Raid\Renderer\Renderer2D.cpp" />
     <ClCompile Include="src\Raid\Renderer\RendererAPI.cpp" />
     <ClCompile Include="src\Raid\Renderer\Shader.cpp" />
     <ClCompile Include="src\Raid\Renderer\Texture.cpp" />

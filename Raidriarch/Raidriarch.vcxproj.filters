@@ -22,6 +22,9 @@
     <Filter Include="src\Raid\Core">
       <UniqueIdentifier>{74B60486-E076-80BC-A9B1-C9391531C598}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Raid\Debug">
+      <UniqueIdentifier>{12E0A746-FEAD-9B4C-E741-0C73D3AE77B1}</UniqueIdentifier>
+    </Filter>
     <Filter Include="src\Raid\Events">
       <UniqueIdentifier>{00352E1F-6CC0-9BE3-75D1-1ED8E1DBF7E3}</UniqueIdentifier>
     </Filter>
@@ -78,6 +81,12 @@
     <ClInclude Include="src\Platform\Vulkan\VulkanContext.h">
       <Filter>src\Platform\Vulkan</Filter>
     </ClInclude>
+    <ClInclude Include="src\Platform\Vulkan\VulkanDevice.h">
+      <Filter>src\Platform\Vulkan</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\Vulkan\VulkanRendererAPI.h">
+      <Filter>src\Platform\Vulkan</Filter>
+    </ClInclude>
     <ClInclude Include="src\Platform\Windows\WindowsInput.h">
       <Filter>src\Platform\Windows</Filter>
     </ClInclude>
@@ -117,6 +126,9 @@
     <ClInclude Include="src\Raid\Core\Window.h">
       <Filter>src\Raid\Core</Filter>
     </ClInclude>
+    <ClInclude Include="src\Raid\Debug\Instrumentor.h">
+      <Filter>src\Raid\Debug</Filter>
+    </ClInclude>
     <ClInclude Include="src\Raid\Events\AppEvent.h">
       <Filter>src\Raid\Events</Filter>
     </ClInclude>
@@ -141,10 +153,16 @@
     <ClInclude Include="src\Raid\Renderer\OrthographicCamera.h">
       <Filter>src\Raid\Renderer</Filter>
     </ClInclude>
+    <ClInclude Include="src\Raid\Renderer\PerspectiveCamera.h">
+      <Filter>src\Raid\Renderer</Filter>
+    </ClInclude>
     <ClInclude Include="src\Raid\Renderer\RenderCommand.h">
       <Filter>src\Raid\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Raid\Renderer\Renderer.h">
+      <Filter>src\Raid\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Raid\Renderer\Renderer2D.h">
       <Filter>src\Raid\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Raid\Renderer\RendererAPI.h">
@@ -1436,6 +1454,9 @@
     <ClCompile Include="src\Platform\Vulkan\VulkanContext.cpp">
       <Filter>src\Platform\Vulkan</Filter>
     </ClCompile>
+    <ClCompile Include="src\Platform\Vulkan\VulkanRendererAPI.cpp">
+      <Filter>src\Platform\Vulkan</Filter>
+    </ClCompile>
     <ClCompile Include="src\Platform\Windows\WindowsInput.cpp">
       <Filter>src\Platform\Windows</Filter>
     </ClCompile>
@@ -1466,10 +1487,16 @@
     <ClCompile Include="src\Raid\Renderer\OrthographicCamera.cpp">
       <Filter>src\Raid\Renderer</Filter>
     </ClCompile>
+    <ClCompile Include="src\Raid\Renderer\PerspectiveCamera.cpp">
+      <Filter>src\Raid\Renderer</Filter>
+    </ClCompile>
     <ClCompile Include="src\Raid\Renderer\RenderCommand.cpp">
       <Filter>src\Raid\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\Raid\Renderer\Renderer.cpp">
+      <Filter>src\Raid\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Raid\Renderer\Renderer2D.cpp">
       <Filter>src\Raid\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\Raid\Renderer\RendererAPI.cpp">
