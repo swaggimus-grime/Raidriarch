@@ -7,12 +7,22 @@ namespace Raid {
 	//-------------//
 	//Vertex Buffer//
 	//-----------//
-	OpenGLVertexBuffer::OpenGLVertexBuffer(uint32_t size, float* vertices)
+	OpenGLVertexBuffer::OpenGLVertexBuffer(uint32_t size)
 	{
+		RAID_PROFILE_FUNCTION();
+
 		glCreateBuffers(1, &m_RendererID);
 		glBindBuffer(GL_ARRAY_BUFFER, m_RendererID);
-		if(vertices) glBufferData(GL_ARRAY_BUFFER, size, vertices, GL_STATIC_DRAW);
-		else glBufferData(GL_ARRAY_BUFFER, size, vertices, GL_DYNAMIC_DRAW);
+		glBufferData(GL_ARRAY_BUFFER, size, nullptr, GL_DYNAMIC_DRAW);
+	}
+
+	OpenGLVertexBuffer::OpenGLVertexBuffer(float* vertices, uint32_t size)
+	{
+		RAID_PROFILE_FUNCTION();
+
+		glCreateBuffers(1, &m_RendererID);
+		glBindBuffer(GL_ARRAY_BUFFER, m_RendererID);
+		glBufferData(GL_ARRAY_BUFFER, size, vertices, GL_STATIC_DRAW);
 	}
 
 	OpenGLVertexBuffer::~OpenGLVertexBuffer()
@@ -20,7 +30,7 @@ namespace Raid {
 		glDeleteBuffers(1, &m_RendererID);
 	}
 
-	void OpenGLVertexBuffer::SetData(uint32_t size, const void* data)
+	void OpenGLVertexBuffer::SetData(const void* data, uint32_t size)
 	{
 		RAID_CORE_ASSERT(data, "Trying to set vertex buffer with null data!");
 

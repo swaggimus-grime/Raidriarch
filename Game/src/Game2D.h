@@ -16,6 +16,12 @@ public:
 	void OnEvent(Raid::Event& e) override;
 private:
 	Raid::OrthographicCameraController m_CameraController;
+	// Temp
+	Raid::Ref<Raid::VertexArray> m_SquareVA;
+	Raid::Ref<Raid::Shader> m_FlatColorShader;
+
+	Raid::Ref<Raid::Texture2D> m_CheckerboardTexture;
+	Raid::Ref<Raid::Texture2D> m_JokerTexture;
 
 	glm::vec4 m_SquareColor = { 0.2f, 0.3f, 0.8f, 1.0f };
 };

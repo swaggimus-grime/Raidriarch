@@ -1,1 +1,1 @@
-{"otherData": {},"traceEvents":[{"cat":"function","dur":400377,"name":"__cdecl Raid::App::App(void)","ph":"X","pid":0,"tid":3998236547,"ts":1607228969140}]}
+{"otherData": {},"traceEvents":[{"cat":"function","dur":124,"name":"__cdecl Raid::OpenGLVertexBuffer::OpenGLVertexBuffer(unsigned int)","ph":"X","pid":0,"tid":324911451,"ts":1686356173682},{"cat":"function","dur":397913,"name":"__cdecl Raid::App::App(void)","ph":"X","pid":0,"tid":324911451,"ts":1686355800614}]}
