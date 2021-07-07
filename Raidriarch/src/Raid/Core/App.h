@@ -27,6 +27,7 @@ namespace Raid {
 
 		void Run();
 		void OnEvent(Event& e);
+		inline void Close() { m_Running = false; }
 
 		void PushLayer(Layer* layer);
 		void PushOverlay(Layer* layer);

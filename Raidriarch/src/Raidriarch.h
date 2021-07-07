@@ -24,6 +24,7 @@
 #include "Raid/Renderer/OrthographicCamera.h"
 #include "Raid/Renderer/PerspectiveCamera.h"
 #include "Raid/Renderer/Texture.h"
+#include "Raid/Renderer/Framebuffer.h"
 
 //---ImGui---//
 #include "Raid/ImGui/ImGuiLayer.h"

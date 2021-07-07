@@ -11,8 +11,9 @@ namespace Raid {
 		OpenGLTexture2D(const std::string& path);
 		virtual ~OpenGLTexture2D();
 
-		virtual uint32_t GetWidth() const override { return m_Width; }
-		virtual uint32_t GetHeight() const override { return m_Height; }
+		inline virtual uint32_t GetWidth() const override { return m_Width; }
+		inline virtual uint32_t GetHeight() const override { return m_Height; }
+		inline virtual uint32_t GetRendererID() const override { return m_RendererID; }
 
 		virtual void SetData(void* data, uint32_t size) override;
 
