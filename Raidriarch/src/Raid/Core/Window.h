@@ -9,18 +9,18 @@ namespace Raid {
 	//Contains the properties for a window
 	struct WindowProps {
 		std::string Title;
-		unsigned int Width;
-		unsigned int Height;
+		uint32_t Width;
+		uint32_t Height;
 
 		WindowProps(const std::string& title = "RAIDRIARCH", 
-			unsigned int width = 1280, unsigned height = 720) 
+			uint32_t width = 1280, uint32_t height = 720)
 		: Title(title), Width(width), Height(height) 
 		{
 		}
 	};
 
 	//Interface that lists functionality for a window 
-	class RAID_API Window {
+	class Window {
 	public:
 		using EventCallbackFn = std::function<void(Event&)>;
 
@@ -29,8 +29,8 @@ namespace Raid {
 		virtual void OnUpdate() = 0;
 
 
-		virtual inline unsigned int GetWidth() const = 0;
-		virtual inline unsigned int GetHeight() const = 0;
+		virtual inline uint32_t GetWidth() const = 0;
+		virtual inline uint32_t GetHeight() const = 0;
 
 		//Window attribs
 		virtual void SetEventCallback(const EventCallbackFn& callback) = 0;

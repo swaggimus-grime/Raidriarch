@@ -1,16 +1,22 @@
 #pragma once
 
-#include <string>
-#include <sstream>
+#include <iostream>
 #include <memory>
-#include <functional>
 #include <utility>
 #include <algorithm>
+#include <functional>
+
+#include <string>
+#include <sstream>
+#include <array>
+#include <vector>
+#include <unordered_map>
+#include <unordered_set>
 
 #include "Raid/Core/Log.h"
 
 #include "Raid/Debug/Instrumentor.h"
 
-#if RAID_PLATFORM_WINDOWS
+#ifdef RAID_PLATFORM_WINDOWS
 	#include <Windows.h>
 #endif

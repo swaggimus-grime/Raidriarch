@@ -12,6 +12,8 @@ namespace Raid {
 
 		void Reset();
 
+		virtual void Resize(uint32_t width, uint32_t height) override;
+
 		virtual void Bind() override;
 		virtual void Unbind() override;
 
@@ -19,8 +21,8 @@ namespace Raid {
 
 		virtual const FramebufferProperties& GetProperties() const override { return m_Properties; }
 	private:
-		uint32_t m_RendererID;
-		uint32_t m_ColorAttachment, m_DepthStencilAttachment;
+		uint32_t m_RendererID = 0;
+		uint32_t m_ColorAttachment = 0, m_DepthStencilAttachment = 0;
 		FramebufferProperties m_Properties;
 	};
 

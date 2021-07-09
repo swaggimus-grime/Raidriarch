@@ -15,10 +15,10 @@
 
 namespace Raid {
 
-	class RAID_API App
+	class App
 	{
 	public:
-		App();
+		App(const std::string& name = "Raid App");
 		~App();
 		App(App&) = delete;
 		App& operator=(const App&) = delete;
@@ -31,6 +31,8 @@ namespace Raid {
 
 		void PushLayer(Layer* layer);
 		void PushOverlay(Layer* layer);
+
+		ImGuiLayer* GetImGuiLayer() { return m_ImGuiLayer; }
 
 		inline Window& GetWindow() { return *m_Window; }
 	private:

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DEFECTS>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\hunte\source\repos\Raidriarch\Raidriarch\src\Raid\Events\</FILEPATH>
+      <FILENAME>Event.h</FILENAME>
+      <LINE>47</LINE>
+      <COLUMN>14</COLUMN>
+    </SFA>
+    <DEFECTCODE>26812</DEFECTCODE>
+    <DESCRIPTION>The enum type 'Raid::EventCategory' is unscoped. Prefer 'enum class' over 'enum' (Enum.3).</DESCRIPTION>
+    <FUNCTION>Raid::Event::IsInCategory</FUNCTION>
+    <DECORATED>?IsInCategory@Event@Raid@@QEAA_NW4EventCategory@2@@Z</DECORATED>
+    <FUNCLINE>47</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+</DEFECTS>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DEFECTS>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\hunte\source\repos\Raidriarch\Raidriarch\src\Raid\Events\</FILEPATH>
+      <FILENAME>Event.h</FILENAME>
+      <LINE>47</LINE>
+      <COLUMN>14</COLUMN>
+    </SFA>
+    <DEFECTCODE>26812</DEFECTCODE>
+    <DESCRIPTION>The enum type 'Raid::EventCategory' is unscoped. Prefer 'enum class' over 'enum' (Enum.3).</DESCRIPTION>
+    <FUNCTION>Raid::Event::IsInCategory</FUNCTION>
+    <DECORATED>?IsInCategory@Event@Raid@@QEAA_NW4EventCategory@2@@Z</DECORATED>
+    <FUNCLINE>47</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\hunte\source\repos\Raidriarch\Raidriarch\vendor\spdlog\include\spdlog\</FILEPATH>
+      <FILENAME>logger.h</FILENAME>
+      <LINE>91</LINE>
+      <COLUMN>4</COLUMN>
+    </SFA>
+    <DEFECTCODE>26812</DEFECTCODE>
+    <DESCRIPTION>The enum type 'spdlog::level::level_enum' is unscoped. Prefer 'enum class' over 'enum' (Enum.3).</DESCRIPTION>
+    <FUNCTION>spdlog::logger::log</FUNCTION>
+    <DECORATED>??$log@$$BY0BG@DAEAY0BI@$$CBD@logger@spdlog@@QEAAXW4level_enum@level@1@AEAY0BG@$$CBDAEAY0BI@$$CBD@Z</DECORATED>
+    <FUNCLINE>91</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\hunte\source\repos\Raidriarch\Raidriarch\vendor\spdlog\include\spdlog\fmt\bundled\</FILEPATH>
+      <FILENAME>core.h</FILENAME>
+      <LINE>618</LINE>
+      <COLUMN>49</COLUMN>
+    </SFA>
+    <DEFECTCODE>26437</DEFECTCODE>
+    <DESCRIPTION>Do not slice (es.63).</DESCRIPTION>
+    <FUNCTION>fmt::v7::basic_format_parse_context&lt;char,fmt::v7::detail::error_handler&gt;::error_handler</FUNCTION>
+    <DECORATED>?error_handler@?$basic_format_parse_context@DUerror_handler@detail@v7@fmt@@@v7@fmt@@QEBA?AU0detail@23@XZ</DECORATED>
+    <FUNCLINE>618</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\hunte\source\repos\Raidriarch\Raidriarch\vendor\spdlog\include\spdlog\fmt\bundled\</FILEPATH>
+      <FILENAME>format.h</FILENAME>
+      <LINE>2798</LINE>
+      <COLUMN>7</COLUMN>
+    </SFA>
+    <DEFECTCODE>26812</DEFECTCODE>
+    <DESCRIPTION>The enum type 'fmt::v7::align::type' is unscoped. Prefer 'enum class' over 'enum' (Enum.3).</DESCRIPTION>
+    <FUNCTION>fmt::v7::detail::parse_align</FUNCTION>
+    <DECORATED>??$parse_align@DAEAV?$specs_checker@V?$dynamic_specs_handler@V?$basic_format_parse_context@DUerror_handler@detail@v7@fmt@@@v7@fmt@@@detail@v7@fmt@@@detail@v7@fmt@@@detail@v7@fmt@@YAPEBDPEBD0AEAV?$specs_checker@V?$dynamic_specs_handler@V?$basic_format_parse_context@DUerror_handler@detail@v7@fmt@@@v7@fmt@@@detail@v7@fmt@@@012@@Z</DECORATED>
+    <FUNCLINE>2795</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+</DEFECTS>

@@ -9,7 +9,7 @@
 
 //---Codes---//
 #include "Raid/Core/KeyCodes.h"
-#include "Raid/Core/MouseButtonCodes.h"
+#include "Raid/Core/MouseCodes.h"
 
 //---Window---//
 #include "Raid/Core/Window.h"

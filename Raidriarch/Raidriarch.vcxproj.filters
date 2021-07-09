@@ -66,6 +66,9 @@
     <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h">
       <Filter>src\Platform\OpenGL</Filter>
     </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLFramebuffer.h">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClInclude>
     <ClInclude Include="src\Platform\OpenGL\OpenGLRendererAPI.h">
       <Filter>src\Platform\OpenGL</Filter>
     </ClInclude>
@@ -86,9 +89,6 @@
     </ClInclude>
     <ClInclude Include="src\Platform\Vulkan\VulkanRendererAPI.h">
       <Filter>src\Platform\Vulkan</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Platform\Windows\WindowsInput.h">
-      <Filter>src\Platform\Windows</Filter>
     </ClInclude>
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h">
       <Filter>src\Platform\Windows</Filter>
@@ -117,7 +117,7 @@
     <ClInclude Include="src\Raid\Core\Log.h">
       <Filter>src\Raid\Core</Filter>
     </ClInclude>
-    <ClInclude Include="src\Raid\Core\MouseButtonCodes.h">
+    <ClInclude Include="src\Raid\Core\MouseCodes.h">
       <Filter>src\Raid\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Raid\Core\Timestep.h">
@@ -145,6 +145,9 @@
       <Filter>src\Raid\ImGui</Filter>
     </ClInclude>
     <ClInclude Include="src\Raid\Renderer\Buffer.h">
+      <Filter>src\Raid\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Raid\Renderer\Framebuffer.h">
       <Filter>src\Raid\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Raid\Renderer\GraphicsContext.h">
@@ -1431,14 +1434,15 @@
     <ClInclude Include="vendor\stb\stb_image.h">
       <Filter>vendor\stb</Filter>
     </ClInclude>
-    <ClInclude Include="src\Raid\Renderer\Framebuffer.h" />
-    <ClInclude Include="src\Platform\OpenGL\OpenGLFramebuffer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\OpenGL\OpenGLBuffer.cpp">
       <Filter>src\Platform\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLFramebuffer.cpp">
       <Filter>src\Platform\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="src\Platform\OpenGL\OpenGLRendererAPI.cpp">
@@ -1486,6 +1490,9 @@
     <ClCompile Include="src\Raid\Renderer\Buffer.cpp">
       <Filter>src\Raid\Renderer</Filter>
     </ClCompile>
+    <ClCompile Include="src\Raid\Renderer\Framebuffer.cpp">
+      <Filter>src\Raid\Renderer</Filter>
+    </ClCompile>
     <ClCompile Include="src\Raid\Renderer\OrthographicCamera.cpp">
       <Filter>src\Raid\Renderer</Filter>
     </ClCompile>
@@ -1519,7 +1526,5 @@
     <ClCompile Include="vendor\stb\stb_image.cpp">
       <Filter>vendor\stb</Filter>
     </ClCompile>
-    <ClCompile Include="src\Raid\Renderer\Framebuffer.cpp" />
-    <ClCompile Include="src\Platform\OpenGL\OpenGLFramebuffer.cpp" />
   </ItemGroup>
 </Project>

@@ -1,45 +1,47 @@
 #include "raidpch.h"
-#include "WindowsInput.h"
+
+#include "Raid/Core/Input.h"
 
 #include "Raid/Core/App.h"
+#include "Raid/Core/KeyCodes.h"
+#include "Raid/Core/MouseCodes.h"
 
 #include <GLFW/glfw3.h>
 
 namespace Raid {
-	Input* Input::s_Instance = new WindowsInput();
-
-	bool WindowsInput::IsKeyPressedImpl(int keycode)
+	bool Input::IsKeyPressed(KeyCode key)
 	{
 		auto window = static_cast<GLFWwindow*>(App::Get().GetWindow().GetNativeWindow());
-		int state = glfwGetKey(window, keycode);
+		auto state = glfwGetKey(window, static_cast<int32_t>(key));
 		return state == GLFW_PRESS || state == GLFW_REPEAT;
 	}
 
-	bool WindowsInput::IsMouseButtonPressedImpl(int button)
+	bool Input::IsMouseButtonPressed(MouseCode button)
 	{
 		auto window = static_cast<GLFWwindow*>(App::Get().GetWindow().GetNativeWindow());
-		int state = glfwGetMouseButton(window, button);
+		auto state = glfwGetMouseButton(window, static_cast<int32_t>(button));
 		return state == GLFW_PRESS;
 	}
 
-	float WindowsInput::GetMouseXImpl()
+	std::pair<float, float> Input::GetMousePosition()
 	{
-		auto [x, y] = GetMousePositionImpl();
+		auto window = static_cast<GLFWwindow*>(App::Get().GetWindow().GetNativeWindow());
+		double xpos, ypos;
+		glfwGetCursorPos(window, &xpos, &ypos);
+
+		return { (float)xpos, (float)ypos };
+	}
+
+	float Input::GetMouseX()
+	{
+		auto [x, y] = GetMousePosition();
 		return x;
 	}
 
-	float WindowsInput::GetMouseYImpl()
+	float Input::GetMouseY()
 	{
-		auto [x, y] = GetMousePositionImpl();
+		auto [x, y] = GetMousePosition();
 		return y;
-	}
-
-	std::pair<float, float> WindowsInput::GetMousePositionImpl()
-	{
-		auto window = static_cast<GLFWwindow*>(App::Get().GetWindow().GetNativeWindow());
-		double x, y;
-		glfwGetCursorPos(window, &x, &y);
-		return { (float)x, (float)y };
 	}
 
 }

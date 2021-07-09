@@ -2,22 +2,60 @@
 
 #include <memory>
 
-#ifdef RAID_PLATFORM_WINDOWS
-	#if RAID_DYNAMIC_LINK
-		#ifdef RAID_BUILD_DLL
-			#define RAID_API __declspec(dllexport)
-		#else
-			#define RAID_API __declspec(dllimport)
-		#endif
+// Platform detection using predefined macros
+#ifdef _WIN32
+	/* Windows x64/x86 */
+	#ifdef _WIN64
+		/* Windows x64  */
+		#define RAID_PLATFORM_WINDOWS
 	#else
-		#define RAID_API
+		/* Windows x86 */
+		#error "x86 Builds are not supported!"
 	#endif
+#elif defined(__APPLE__) || defined(__MACH__)
+	#include <TargetConditionals.h>
+	/* TARGET_OS_MAC exists on all the platforms
+	 * so we must check all of them (in this order)
+	 * to ensure that we're running on MAC
+	 * and not some other Apple platform */
+	#if TARGET_IPHONE_SIMULATOR == 1
+		#error "IOS simulator is not supported!"
+	#elif TARGET_OS_IPHONE == 1
+		#define RAID_PLATFORM_IOS
+		#error "IOS is not supported!"
+	#elif TARGET_OS_MAC == 1
+		#define RAID_PLATFORM_MACOS
+		#error "MacOS is not supported!"
+	#else
+		#error "Unknown Apple platform!"
+	#endif
+ /* We also have to check __ANDROID__ before __linux__
+  * since android is based on the linux kernel
+  * it has __linux__ defined */
+#elif defined(__ANDROID__)
+	#define RAID_PLATFORM_ANDROID
+	#error "Android is not supported!"
+#elif defined(__linux__)
+	#define RAID_PLATFORM_LINUX
+	#error "Linux is not supported!"
 #else
-	#error Raidriarch only supports Windows!
-#endif
+	/* Unknown compiler/platform */
+	#error "Unknown platform!"
+#endif // End of platform detection
 
 #ifdef RAID_DEBUG
+	#if defined(RAID_PLATFORM_WINDOWS)
+		#define RAID_DEBUGBREAK() __debugbreak()
+	#elif defined(RAID_PLATFORM_LINUX)
+		#include <signal.h>
+		#define RAID_DEBUGBREAK() raise(SIGTRAP)
+	#else
+		#error "Platform doesn't support debugbreak yet!"
+	#endif
+
 	#define RAID_ENABLE_ASSERTS
+#else
+	#define RAID_DEBUGBREAK()
 #endif
 
 #ifdef RAID_ENABLE_ASSERTS

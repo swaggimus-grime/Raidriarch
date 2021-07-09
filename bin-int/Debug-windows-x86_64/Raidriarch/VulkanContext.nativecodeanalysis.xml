@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DEFECTS>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\hunte\source\repos\Raidriarch\Raidriarch\src\Platform\Vulkan\</FILEPATH>
+      <FILENAME>VulkanContext.cpp</FILENAME>
+      <LINE>63</LINE>
+      <COLUMN>31</COLUMN>
+    </SFA>
+    <DEFECTCODE>26817</DEFECTCODE>
+    <DESCRIPTION>Potentially expensive copy of variable 'properties' in range-for loop. Consider making it a const reference (es.71).</DESCRIPTION>
+    <FUNCTION>Raid::VulkanContext::Init</FUNCTION>
+    <DECORATED>?Init@VulkanContext@Raid@@UEAAXXZ</DECORATED>
+    <FUNCLINE>36</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\hunte\source\repos\Raidriarch\Raidriarch\src\Platform\Vulkan\</FILEPATH>
+      <FILENAME>VulkanContext.cpp</FILENAME>
+      <LINE>105</LINE>
+      <COLUMN>50</COLUMN>
+    </SFA>
+    <DEFECTCODE>26812</DEFECTCODE>
+    <DESCRIPTION>The enum type 'VkDebugUtilsMessageSeverityFlagBitsEXT' is unscoped. Prefer 'enum class' over 'enum' (Enum.3).</DESCRIPTION>
+    <FUNCTION>Raid::VulkanContext::DebugCallback</FUNCTION>
+    <DECORATED>?DebugCallback@VulkanContext@Raid@@CAIW4VkDebugUtilsMessageSeverityFlagBitsEXT@@IPEBUVkDebugUtilsMessengerCallbackDataEXT@@PEAX@Z</DECORATED>
+    <FUNCLINE>105</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\hunte\source\repos\Raidriarch\Raidriarch\vendor\spdlog\include\spdlog\</FILEPATH>
+      <FILENAME>logger.h</FILENAME>
+      <LINE>91</LINE>
+      <COLUMN>4</COLUMN>
+    </SFA>
+    <DEFECTCODE>26812</DEFECTCODE>
+    <DESCRIPTION>The enum type 'spdlog::level::level_enum' is unscoped. Prefer 'enum class' over 'enum' (Enum.3).</DESCRIPTION>
+    <FUNCTION>spdlog::logger::log</FUNCTION>
+    <DECORATED>??$log@$$BY0BG@DAEAY0CE@$$CBDAEAY0CA@$$CBD@logger@spdlog@@QEAAXW4level_enum@level@1@AEAY0BG@$$CBDAEAY0CE@$$CBDAEAY0CA@$$CBD@Z</DECORATED>
+    <FUNCLINE>91</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+</DEFECTS>

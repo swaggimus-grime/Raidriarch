@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DEFECTS>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\hunte\source\repos\Raidriarch\Raidriarch\vendor\spdlog\include\spdlog\</FILEPATH>
+      <FILENAME>logger.h</FILENAME>
+      <LINE>91</LINE>
+      <COLUMN>4</COLUMN>
+    </SFA>
+    <DEFECTCODE>26812</DEFECTCODE>
+    <DESCRIPTION>The enum type 'spdlog::level::level_enum' is unscoped. Prefer 'enum class' over 'enum' (Enum.3).</DESCRIPTION>
+    <FUNCTION>spdlog::logger::log</FUNCTION>
+    <DECORATED>??$log@$$BY0BG@DAEAY0BL@$$CBD@logger@spdlog@@QEAAXW4level_enum@level@1@AEAY0BG@$$CBDAEAY0BL@$$CBD@Z</DECORATED>
+    <FUNCLINE>91</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+</DEFECTS>

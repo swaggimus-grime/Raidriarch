@@ -6,7 +6,7 @@
 
 namespace Raid {
 
-	class RAID_API Log
+	class Log
 	{
 	public:
 		static void Init();
