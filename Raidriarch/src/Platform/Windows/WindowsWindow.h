@@ -23,6 +23,8 @@ namespace Raid {
 	private:
 		void Init(const WindowProps& props);
 		void Shutdown();
+
+		static std::vector<const char*>& GetRequiredVulkanExtensions();
 	private:
 		GLFWwindow* m_Window;
 		GraphicsContext* m_Context;

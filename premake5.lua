@@ -1,12 +1,17 @@
 workspace "Raidriarch"
 	architecture "x86_64"
-	startproject "Game"
+	startproject "Raidriarch-Editor"
 
 	configurations
 	{
 		"Debug",
 		"Release",
 		"Dist"
+	}
+	
+	flags
+	{
+		"MultiProcessorCompile"
 	}
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
@@ -43,16 +48,19 @@ project "Raidriarch"
 	{
 		"%{prj.name}/src/**.h",
 		"%{prj.name}/src/**.cpp",
+		"%{prj.name}/vendor/stb/**.h",
+		"%{prj.name}/vendor/stb/**.cpp",
 		"%{prj.name}/vendor/glm/glm/**.hpp",
 		"%{prj.name}/vendor/glm/glm/**.inl",
-		"%{prj.name}/vendor/stb/**.h",
-		"%{prj.name}/vendor/stb/**.cpp"
 	}
 
 	defines
 	{
-		"_CRT_SECURE_NO_WARNINGS"
+		"_CRT_SECURE_NO_WARNINGS",
+		"GLFW_INCLUDE_NONE"
 	}
+
+	libdirs { "Raidriarch/vendor/Vulkan/lib" }
 
 	includedirs
 	{
@@ -65,8 +73,6 @@ project "Raidriarch"
 		"%{IncludeDir.stb}",
 		"%{IncludeDir.Vulkan}"
 	}
-
-	libdirs { "Raidriarch/vendor/Vulkan/lib" }
 
 	links 
 	{ 
@@ -82,9 +88,6 @@ project "Raidriarch"
 
 		defines
 		{
-			"RAID_PLATFORM_WINDOWS",
-			"RAID_BUILD_DLL",
-			"GLFW_INCLUDE_NONE"
 		}
 
 	filter "configurations:Debug"
@@ -133,12 +136,7 @@ project "Game"
 
 	filter "system:windows"
 		systemversion "latest"
-
-		defines
-		{
-			"RAID_PLATFORM_WINDOWS"
-		}
-
+		
 	filter "configurations:Debug"
 		defines "RAID_DEBUG"
 		runtime "Debug"
@@ -153,4 +151,50 @@ project "Game"
 		defines "RAID_DIST"
 		runtime "Release"
 		optimize "on"
+
+project "Raidriarch-Editor"
+	location "Raidriarch-Editor"
+	kind "ConsoleApp"
+	language "C++"
+	cppdialect "C++17"
+	staticruntime "on"
+
+	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
+	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
+
+	files
+	{
+		"%{prj.name}/src/**.h",
+		"%{prj.name}/src/**.cpp"
+	}
+
+	includedirs
+	{
+		"Raidriarch/vendor/spdlog/include",
+		"Raidriarch/src",
+		"Raidriarch/vendor",
+		"%{IncludeDir.glm}"
+	}
+
+	links
+	{
+		"Raidriarch"
+	}
+
+	filter "system:windows"
+		systemversion "latest"
 		
+	filter "configurations:Debug"
+		defines "RAID_DEBUG"
+		runtime "Debug"
+		symbols "on"
+
+	filter "configurations:Release"
+		defines "RAID_RELEASE"
+		runtime "Release"
+		optimize "on"
+
+	filter "configurations:Dist"
+		defines "RAID_DIST"
+		runtime "Release"
+		optimize "on"

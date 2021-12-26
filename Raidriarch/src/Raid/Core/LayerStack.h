@@ -7,7 +7,7 @@
 
 namespace Raid {
 
-	class RAID_API LayerStack
+	class LayerStack
 	{
 	public:
 		LayerStack();

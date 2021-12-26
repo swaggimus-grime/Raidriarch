@@ -1,0 +1,1662 @@
+{
+  "version": "2.1.0",
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.5.json",
+  "runs": [
+    {
+      "results": [
+        {
+          "ruleId": "C26812",
+          "message": {
+            "text": "The enum type 'Raid::EventCategory' is unscoped. Prefer 'enum class' over 'enum' (Enum.3)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/hunte/source/repos/Raidriarch/Raidriarch/src/Raid/Events/Event.h"
+                },
+                "region": {
+                  "startLine": 47,
+                  "startColumn": 15,
+                  "endLine": 47,
+                  "endColumn": 15
+                }
+              },
+              "logicalLocations": [
+                {
+                  "decoratedName": "?IsInCategory@Event@Raid@@QEAA_NW4EventCategory@2@@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "suppressions": []
+        },
+        {
+          "ruleId": "C26812",
+          "message": {
+            "text": "The enum type 'spdlog::level::level_enum' is unscoped. Prefer 'enum class' over 'enum' (Enum.3)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/hunte/source/repos/Raidriarch/Raidriarch/vendor/spdlog/include/spdlog/logger.h"
+                },
+                "region": {
+                  "startLine": 91,
+                  "startColumn": 5,
+                  "endLine": 91,
+                  "endColumn": 5
+                }
+              },
+              "logicalLocations": [
+                {
+                  "decoratedName": "??$log@$$BY0BG@DAEAY0BI@$$CBD@logger@spdlog@@QEAAXW4level_enum@level@1@AEAY0BG@$$CBDAEAY0BI@$$CBD@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "suppressions": []
+        }
+      ],
+      "tool": {
+        "driver": {
+          "name": "PREfast",
+          "fullName": "PREfast Code Analysis",
+          "version": "14.28.29915.0",
+          "informationUri": "https://aka.ms/cpp/ca"
+        }
+      },
+      "invocations": [
+        {
+          "commandLine": "\"C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.28.29910\\bin\\HostX86\\x64\\c1xx.dll\" -ACf{1F7B090C-16DB-4822-966A-A93D26ED4681} -ACpmspft140.dll -Alint -D_PREFAST_ -D_AST_FE_ -Analyze -zm0x00ABB1C0 -allChunksReserved -il C:\\Users\\hunte\\AppData\\Local\\Temp\\_CL_8fdb48e6ast -typedil -f src\\Raid\\Renderer\\Renderer.cpp -Ze -D_MSC_EXTENSIONS -Zp16 -pc \\:/ -D_MSC_VER=1928 -D_MSC_FULL_VER=192829915 -D_MSC_BUILD=0 -D_M_AMD64=100 -ZILP448 -D_M_X64=100 -D_WIN64 -D_WIN32 -GR -D_CPPRTTI -I C:\\Users\\hunte\\source\\repos\\Raidriarch\\Raidriarch\\src -I C:\\Users\\hunte\\source\\repos\\Raidriarch\\Raidriarch\\vendor\\spdlog\\include -I C:\\Users\\hunte\\source\\repos\\Raidriarch\\Raidriarch\\vendor\\GLFW\\include -I C:\\Users\\hunte\\source\\repos\\Raidriarch\\Raidriarch\\vendor\\Glad\\include -I C:\\Users\\hunte\\source\\repos\\Raidriarch\\Raidriarch\\vendor\\imgui -I C:\\Users\\hunte\\source\\repos\\Raidriarch\\Raidriarch\\vendor\\glm -I C:\\Users\\hunte\\source\\repos\\Raidriarch\\Raidriarch\\vendor\\stb -I C:\\Users\\hunte\\source\\repos\\Raidriarch\\Raidriarch\\vendor\\Vulkan\\include -nologo -W 3 -diagnostics:column -Ot -DCODE_ANALYSIS -D_CRT_SECURE_NO_WARNINGS -DGLFW_INCLUDE_NONE -DRAID_DEBUG -D_UNICODE -DUNICODE -EHs -D_CPPUNWIND -EHc -D__MSVC_RUNTIME_CHECKS -RTCs -RTCu -MTd -clrNoPureCRT -D_DEBUG -D_MT -GS -D_M_FP_PRECISE -Zc:wchar_t -Zc:forScope -std:c++17 -Yuraidpch.h -Fp..\\bin-int\\Debug-windows-x86_64\\Raidriarch\\Raidriarch.pch -Fo..\\bin-int\\Debug-windows-x86_64\\Raidriarch\\Renderer.obj -Fd..\\bin\\Debug-windows-x86_64\\Raidriarch\\Raidriarch.pdb -Gd -analyze:projectdirectory C:\\Users\\hunte\\source\\repos\\Raidriarch\\Raidriarch -analyze:rulesetdirectory ;C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\Team Tools\\Static Analysis Tools\\\\Rule Sets; -analyze:ruleset C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\Team Tools\\Static Analysis Tools\\Rule Sets\\NativeRecommendedRules.ruleset -analyze:quiet -analyze:plugin C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.28.29910\\bin\\HostX86\\x86\\EspXEngine.dll -FC -errorreport:prompt -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.28.29910\\include -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.28.29910\\atlmfc\\include -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Auxiliary\\VS\\include -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.19041.0\\ucrt -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Auxiliary\\VS\\UnitTest\\include -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.19041.0\\um -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.19041.0\\shared -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.19041.0\\winrt -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.19041.0\\cppwinrt -I C:\\Program Files (x86)\\Windows Kits\\NETFXSDK\\4.8\\Include\\um -MPdiagMutex 00000000000001AC",
+          "executionSuccessful": true
+        }
+      ],
+      "artifacts": [
+        {
+          "location": {
+            "uri": "file:///C:/Users/hunte/source/repos/Raidriarch/Raidriarch/vendor/spdlog/include/spdlog/logger.h"
+          },
+          "roles": [
+            "resultFile"
+          ],
+          "hashes": {
+            "md5": "38e7b41e05ec9d5e3c018d5d86bcf21a"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/src/platform/opengl/openglrendererapi.cpp"
+          },
+          "roles": [
+            "analysisTarget"
+          ],
+          "hashes": {
+            "md5": "b203f02b9453ac8fe51251f52b2dd9e2"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/src/raidpch.h"
+          },
+          "hashes": {
+            "md5": "28852d1deb5c3f0f9c4384efe493ce68"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/src/raid/core/log.h"
+          },
+          "hashes": {
+            "md5": "ebb0ed39bb190ef4d1217d4c202cd242"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/src/raid/core/core.h"
+          },
+          "hashes": {
+            "md5": "789293a087d9c3b123c8abbbabc27ae5"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/spdlog/include/spdlog/spdlog.h"
+          },
+          "hashes": {
+            "md5": "a391ed8fc044b619adadddf170610d61"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/spdlog/include/spdlog/common.h"
+          },
+          "hashes": {
+            "md5": "1c5f10f2706f30e4189696111e3579b0"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/spdlog/include/spdlog/tweakme.h"
+          },
+          "hashes": {
+            "md5": "1c0380f6a89ad81c9ed61862d6c1d0b3"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/spdlog/include/spdlog/details/null_mutex.h"
+          },
+          "hashes": {
+            "md5": "baca51cba479243fe585895f8e5e6d3a"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/spdlog/include/spdlog/fmt/fmt.h"
+          },
+          "hashes": {
+            "md5": "804ebab0d14deac7ba935155660e235c"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/spdlog/include/spdlog/fmt/bundled/core.h"
+          },
+          "hashes": {
+            "md5": "4092cd841ddad1d41d47c0ea18cdb918"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/spdlog/include/spdlog/fmt/bundled/format.h"
+          },
+          "hashes": {
+            "md5": "476108b1673d2790f348cc6dfbc1cd01"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/spdlog/include/spdlog/fmt/bundled/format-inl.h"
+          },
+          "hashes": {
+            "md5": "77d480e0bf252846bbc460ce206cba85"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/spdlog/include/spdlog/common-inl.h"
+          },
+          "hashes": {
+            "md5": "9b1007f2e0933ff4147b09a644cce175"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/spdlog/include/spdlog/details/registry.h"
+          },
+          "hashes": {
+            "md5": "2c4ec49183ee8cbf4b0216229756e5cf"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/spdlog/include/spdlog/details/registry-inl.h"
+          },
+          "hashes": {
+            "md5": "c4215cbd928e39ec05d3eff3884badf3"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/spdlog/include/spdlog/details/periodic_worker.h"
+          },
+          "hashes": {
+            "md5": "7b0d02412a29232d2ff87d565791e1fb"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/spdlog/include/spdlog/details/periodic_worker-inl.h"
+          },
+          "hashes": {
+            "md5": "45d77f152715b27b1c140525f731cd78"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/spdlog/include/spdlog/details/log_msg.h"
+          },
+          "hashes": {
+            "md5": "6a4ddfd585769dda5589fa336dcba010"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/spdlog/include/spdlog/details/log_msg-inl.h"
+          },
+          "hashes": {
+            "md5": "08e63e6e3c83ef567b001b90f63076e8"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/spdlog/include/spdlog/details/os.h"
+          },
+          "hashes": {
+            "md5": "7170593805c38884805e9ba11cd23533"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/spdlog/include/spdlog/details/os-inl.h"
+          },
+          "hashes": {
+            "md5": "2cd58e9d80aa714d1d7f60b4a298c00d"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/spdlog/include/spdlog/details/windows_include.h"
+          },
+          "hashes": {
+            "md5": "0d023d9e66ec282ecaf400a3f8f1436c"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/spdlog/include/spdlog/details/backtracer.h"
+          },
+          "hashes": {
+            "md5": "986ef87e3daccccd327d78f5df00cbfc"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/spdlog/include/spdlog/details/log_msg_buffer.h"
+          },
+          "hashes": {
+            "md5": "a85e6c8a386e5a480e9baeb1eda88781"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/spdlog/include/spdlog/details/log_msg_buffer-inl.h"
+          },
+          "hashes": {
+            "md5": "e492c72cf7c7df963912bdd89837e57e"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/spdlog/include/spdlog/details/circular_q.h"
+          },
+          "hashes": {
+            "md5": "f382b27068fc8d79bb377aaaec405bba"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/spdlog/include/spdlog/details/backtracer-inl.h"
+          },
+          "hashes": {
+            "md5": "224024f113dbde8ae5276e7245a399f1"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/spdlog/include/spdlog/logger-inl.h"
+          },
+          "hashes": {
+            "md5": "8ee3b03984a7f5ea4637c5d5c2e5c392"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/spdlog/include/spdlog/sinks/sink.h"
+          },
+          "hashes": {
+            "md5": "b7a2b6822006bfb1dce70eac1de79102"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/spdlog/include/spdlog/formatter.h"
+          },
+          "hashes": {
+            "md5": "7a79c32e8ef3448960762f8383d62540"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/spdlog/include/spdlog/sinks/sink-inl.h"
+          },
+          "hashes": {
+            "md5": "4d285de96e000345b75239eced90bddd"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/spdlog/include/spdlog/pattern_formatter.h"
+          },
+          "hashes": {
+            "md5": "fce36b3577e1403b3943cdc2ec375a62"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/spdlog/include/spdlog/pattern_formatter-inl.h"
+          },
+          "hashes": {
+            "md5": "4f47c63f6d129dcf21d174562caa8e70"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/spdlog/include/spdlog/details/fmt_helper.h"
+          },
+          "hashes": {
+            "md5": "be750e9ee5fa867ab2a272c9ffa2f010"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/spdlog/include/spdlog/sinks/wincolor_sink.h"
+          },
+          "hashes": {
+            "md5": "1516a2c80c48d05fb602ad97b2448670"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/spdlog/include/spdlog/details/console_globals.h"
+          },
+          "hashes": {
+            "md5": "d808035e47f509f69e5d133b71437ebb"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/spdlog/include/spdlog/sinks/wincolor_sink-inl.h"
+          },
+          "hashes": {
+            "md5": "2508bff008a76d92261f9cd37a92ef88"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/spdlog/include/spdlog/version.h"
+          },
+          "hashes": {
+            "md5": "871647fbb23f098487712a1304114baf"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/spdlog/include/spdlog/details/synchronous_factory.h"
+          },
+          "hashes": {
+            "md5": "17471a716e70abdceaf730cc860795f3"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/spdlog/include/spdlog/spdlog-inl.h"
+          },
+          "hashes": {
+            "md5": "2607b164ba7a7e1d7c935ca3423fc91e"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/spdlog/include/spdlog/fmt/ostr.h"
+          },
+          "hashes": {
+            "md5": "ec802341f34eac60fd48368837067667"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/spdlog/include/spdlog/fmt/bundled/ostream.h"
+          },
+          "hashes": {
+            "md5": "deca3fbed08252e657b3ea8ae6923262"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/src/raid/debug/instrumentor.h"
+          },
+          "hashes": {
+            "md5": "9f6f4491723cdc32e47b1906157bee50"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/src/platform/opengl/openglrendererapi.h"
+          },
+          "hashes": {
+            "md5": "9870a105be13196f175b46f5134069c4"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/src/raid/renderer/rendererapi.h"
+          },
+          "hashes": {
+            "md5": "3aa7fafb9b38117c849168208926316b"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/glm.hpp"
+          },
+          "hashes": {
+            "md5": "86e130898c9a16fa56a4e1a1d6e4b9bf"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/detail/_fixes.hpp"
+          },
+          "hashes": {
+            "md5": "4258db4aa4db2fcf1b84b9c64e061c17"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/detail/setup.hpp"
+          },
+          "hashes": {
+            "md5": "462d7f4657c5ed9ba25c58e81cc86544"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/simd/platform.h"
+          },
+          "hashes": {
+            "md5": "c0c693b9d0c1701fa939871479d8560d"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/fwd.hpp"
+          },
+          "hashes": {
+            "md5": "61df6b1811b6a00fdbe94fca3152e9c8"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/detail/qualifier.hpp"
+          },
+          "hashes": {
+            "md5": "ca5da67ccf529c70fd134f265a3a1ad4"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/vec2.hpp"
+          },
+          "hashes": {
+            "md5": "2a69862d67d85af84158250d454875a9"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/ext/vector_bool2.hpp"
+          },
+          "hashes": {
+            "md5": "03e0316c5ed390f7777bc2e3887c71ac"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/detail/type_vec2.hpp"
+          },
+          "hashes": {
+            "md5": "5c881f55e6746997817927f8d9c80f09"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/detail/type_vec2.inl"
+          },
+          "hashes": {
+            "md5": "8adaf37ba4efa75b3bacfcb4e240dd7b"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/detail/compute_vector_relational.hpp"
+          },
+          "hashes": {
+            "md5": "3dbc4c0370fd4f1afc2de835eef5ee2d"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/ext/vector_bool2_precision.hpp"
+          },
+          "hashes": {
+            "md5": "1fa289fbdb4f7e3fbbdc8ea54f143b2e"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/ext/vector_float2.hpp"
+          },
+          "hashes": {
+            "md5": "49dd688b9fd99a26ac358e2f6eef952a"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/ext/vector_float2_precision.hpp"
+          },
+          "hashes": {
+            "md5": "2970883af8ee8e73632605db7fa38582"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/ext/vector_double2.hpp"
+          },
+          "hashes": {
+            "md5": "6e89336c6c438cf8f842725b6d979bf5"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/ext/vector_double2_precision.hpp"
+          },
+          "hashes": {
+            "md5": "13999b208c8c9f89c80c2e83f10c5258"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/ext/vector_int2.hpp"
+          },
+          "hashes": {
+            "md5": "426f21371933605c17ded62b4e83f56d"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/ext/vector_int2_sized.hpp"
+          },
+          "hashes": {
+            "md5": "0fef15a860b7857166afdcd123a3265c"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/ext/scalar_int_sized.hpp"
+          },
+          "hashes": {
+            "md5": "56922a1c4ea160d56d67645575d3c32b"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/ext/vector_uint2.hpp"
+          },
+          "hashes": {
+            "md5": "fb1d0769086196ce9642c77939f64395"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/ext/vector_uint2_sized.hpp"
+          },
+          "hashes": {
+            "md5": "ea6d506440f1fc094a02fbc45066c07e"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/ext/scalar_uint_sized.hpp"
+          },
+          "hashes": {
+            "md5": "8dd47eb717f4dfd571b5074c5597ac46"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/vec3.hpp"
+          },
+          "hashes": {
+            "md5": "30188f353bb3c74313eb54147568449f"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/ext/vector_bool3.hpp"
+          },
+          "hashes": {
+            "md5": "9f1eb69356c03e6dad0472d65103ed89"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/detail/type_vec3.hpp"
+          },
+          "hashes": {
+            "md5": "7c629346477aa8f779a1a3317cde893a"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/detail/type_vec3.inl"
+          },
+          "hashes": {
+            "md5": "303d0800d2296776e324927030ed2232"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/ext/vector_bool3_precision.hpp"
+          },
+          "hashes": {
+            "md5": "0caacc42ecbc6b95921dc848cd42230b"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/ext/vector_float3.hpp"
+          },
+          "hashes": {
+            "md5": "9d538505432eede5b464649e83e6352a"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/ext/vector_float3_precision.hpp"
+          },
+          "hashes": {
+            "md5": "bb6a82373dbdf07ab4987983ff9625f5"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/ext/vector_double3.hpp"
+          },
+          "hashes": {
+            "md5": "2e908d1a60b45775bf54d07440b2e2ea"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/ext/vector_double3_precision.hpp"
+          },
+          "hashes": {
+            "md5": "b0cb1d7e8daedd408c7914e56d4886aa"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/ext/vector_int3.hpp"
+          },
+          "hashes": {
+            "md5": "9177707955903f049664f893e56f1030"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/ext/vector_int3_sized.hpp"
+          },
+          "hashes": {
+            "md5": "6c3cfc77eee6618f0f4dfb090179aa25"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/ext/vector_uint3.hpp"
+          },
+          "hashes": {
+            "md5": "25167e31b36c7793295da7510084070c"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/ext/vector_uint3_sized.hpp"
+          },
+          "hashes": {
+            "md5": "e0e40d1e398b4c980d25e2b9ca0d462d"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/vec4.hpp"
+          },
+          "hashes": {
+            "md5": "abcf6911267e379a78288d87e3bdcbe4"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/ext/vector_bool4.hpp"
+          },
+          "hashes": {
+            "md5": "06880ff97b470a930eba055982f0ad9f"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/detail/type_vec4.hpp"
+          },
+          "hashes": {
+            "md5": "3fb8d1675438c0bcc3f3e294b6d04797"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/detail/type_vec4.inl"
+          },
+          "hashes": {
+            "md5": "9f416357806888e25fc9d4aa54976f91"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/ext/vector_bool4_precision.hpp"
+          },
+          "hashes": {
+            "md5": "e3a3f70625137f2f8bd281f3375f4552"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/ext/vector_float4.hpp"
+          },
+          "hashes": {
+            "md5": "55b643da17a37bdc82f5cd74f09f64c5"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/ext/vector_float4_precision.hpp"
+          },
+          "hashes": {
+            "md5": "18a43606bd9f0679bf05f1a85bd315bb"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/ext/vector_double4.hpp"
+          },
+          "hashes": {
+            "md5": "7304908ade91874f663a019949d4da9c"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/ext/vector_double4_precision.hpp"
+          },
+          "hashes": {
+            "md5": "c4b32c85617367909dfff47bdc2bfd2b"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/ext/vector_int4.hpp"
+          },
+          "hashes": {
+            "md5": "ada224b16331467c3c41590d07ff6bec"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/ext/vector_int4_sized.hpp"
+          },
+          "hashes": {
+            "md5": "47cbdc840d44755efb1226b176dba771"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/ext/vector_uint4.hpp"
+          },
+          "hashes": {
+            "md5": "64a5d3844628a9f22736ab0f0e306af4"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/ext/vector_uint4_sized.hpp"
+          },
+          "hashes": {
+            "md5": "b7e9ed75d880e607dec273c238cc18a3"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/mat2x2.hpp"
+          },
+          "hashes": {
+            "md5": "f09d4c48512108de48e2c95a1f8297fd"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/ext/matrix_double2x2.hpp"
+          },
+          "hashes": {
+            "md5": "67f1076b5a202f71d4303846cbaa3f74"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/detail/type_mat2x2.hpp"
+          },
+          "hashes": {
+            "md5": "496c29e51d961d7618832837bd966d95"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/detail/type_mat2x2.inl"
+          },
+          "hashes": {
+            "md5": "0add661eda88b834a2c99dc6b3be4206"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/matrix.hpp"
+          },
+          "hashes": {
+            "md5": "40ccf9cb1b5e16e16a771bae7aa83c41"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/mat2x3.hpp"
+          },
+          "hashes": {
+            "md5": "f668df5af6f72c51d9bacd470955c565"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/ext/matrix_double2x3.hpp"
+          },
+          "hashes": {
+            "md5": "aaa1da294d1d8484119b34c506158849"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/detail/type_mat2x3.hpp"
+          },
+          "hashes": {
+            "md5": "14d27afa8a4bc60773621a8554f465d4"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/detail/type_mat2x3.inl"
+          },
+          "hashes": {
+            "md5": "a5872e07ba93c4fb642b767ca3a97723"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/ext/matrix_double2x3_precision.hpp"
+          },
+          "hashes": {
+            "md5": "468883a552985c38ec0852cd4553dbd9"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/ext/matrix_float2x3.hpp"
+          },
+          "hashes": {
+            "md5": "c5c72f8544f47325d57ac2267e2ba800"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/ext/matrix_float2x3_precision.hpp"
+          },
+          "hashes": {
+            "md5": "9d8d4fa547b0516aae41e3006d396ff2"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/mat2x4.hpp"
+          },
+          "hashes": {
+            "md5": "7d79eae01c98fe7540989aa66b0444af"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/ext/matrix_double2x4.hpp"
+          },
+          "hashes": {
+            "md5": "7ded1199b1ec5b8baab5d2fed1308060"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/detail/type_mat2x4.hpp"
+          },
+          "hashes": {
+            "md5": "bb63e3f96a61ecfc1fc522ee2d3337c8"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/detail/type_mat2x4.inl"
+          },
+          "hashes": {
+            "md5": "d4e88ba6d1c2e6e89ca04d8a316682b4"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/ext/matrix_double2x4_precision.hpp"
+          },
+          "hashes": {
+            "md5": "8d8bdd1e3ad9f9fdc77f286094a56f2b"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/ext/matrix_float2x4.hpp"
+          },
+          "hashes": {
+            "md5": "1fdfdde56f3483e76b67966cea5d5c13"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/ext/matrix_float2x4_precision.hpp"
+          },
+          "hashes": {
+            "md5": "acff309f234e3dfe20efc23e4d6c2c55"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/mat3x2.hpp"
+          },
+          "hashes": {
+            "md5": "8ddd1ea2f6968b984e75afc562311fcc"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/ext/matrix_double3x2.hpp"
+          },
+          "hashes": {
+            "md5": "30ad62cf96f34da17012cf1f44117504"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/detail/type_mat3x2.hpp"
+          },
+          "hashes": {
+            "md5": "e8b27c06d81d5ca4037127ee8fbb7721"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/detail/type_mat3x2.inl"
+          },
+          "hashes": {
+            "md5": "c919585238de8365fad056385e86b775"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/ext/matrix_double3x2_precision.hpp"
+          },
+          "hashes": {
+            "md5": "173487ed009d901886f1d4f49c83e99b"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/ext/matrix_float3x2.hpp"
+          },
+          "hashes": {
+            "md5": "7ab36c6d6d9b3d299b88340397a0644f"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/ext/matrix_float3x2_precision.hpp"
+          },
+          "hashes": {
+            "md5": "aa9fa7827108b83ce1b786faf90dda49"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/mat3x3.hpp"
+          },
+          "hashes": {
+            "md5": "bdeac3c9494ab29b6063e7f20c5f3a76"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/ext/matrix_double3x3.hpp"
+          },
+          "hashes": {
+            "md5": "fdadc029e2e2f979092f3558009bc24b"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/detail/type_mat3x3.hpp"
+          },
+          "hashes": {
+            "md5": "17331b7c49b1921637f4a796e727c488"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/detail/type_mat3x3.inl"
+          },
+          "hashes": {
+            "md5": "555eaffea73a6e469bae7f9d537899cf"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/ext/matrix_double3x3_precision.hpp"
+          },
+          "hashes": {
+            "md5": "39353cd1744b46aac8bfd44aa7670943"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/ext/matrix_float3x3.hpp"
+          },
+          "hashes": {
+            "md5": "0a894c4357b58bcd443799d4d70eca8b"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/ext/matrix_float3x3_precision.hpp"
+          },
+          "hashes": {
+            "md5": "573ce88c36556454fe90f8b2acf41064"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/mat3x4.hpp"
+          },
+          "hashes": {
+            "md5": "db69584ff612a22f46b6d3d0abf30b18"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/ext/matrix_double3x4.hpp"
+          },
+          "hashes": {
+            "md5": "947b7fb951811fd726d796ddbbc51bf4"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/detail/type_mat3x4.hpp"
+          },
+          "hashes": {
+            "md5": "e7716cff887bf614dfe7848e3b8e41fa"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/detail/type_mat3x4.inl"
+          },
+          "hashes": {
+            "md5": "5d9a5dbe7bdd52354e51950c772054e7"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/ext/matrix_double3x4_precision.hpp"
+          },
+          "hashes": {
+            "md5": "e6779ff4c1759a8db0d6d986bcdb64ba"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/ext/matrix_float3x4.hpp"
+          },
+          "hashes": {
+            "md5": "39d375e30adc9f2def3e9e82ce2f72a8"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/ext/matrix_float3x4_precision.hpp"
+          },
+          "hashes": {
+            "md5": "14b646c38559751a2dc995f407c8b866"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/mat4x2.hpp"
+          },
+          "hashes": {
+            "md5": "14a23b93f932b144469b200e87b8f825"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/ext/matrix_double4x2.hpp"
+          },
+          "hashes": {
+            "md5": "b13ab8d95a29b67f5e1e94c7bb8e6df9"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/detail/type_mat4x2.hpp"
+          },
+          "hashes": {
+            "md5": "5271d4bb492454f76980ec514ffd5069"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/detail/type_mat4x2.inl"
+          },
+          "hashes": {
+            "md5": "39f3f849e298db3e98fb0ce9d92930ae"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/ext/matrix_double4x2_precision.hpp"
+          },
+          "hashes": {
+            "md5": "79adfc17ac77ae525ad315f1dd9714d2"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/ext/matrix_float4x2.hpp"
+          },
+          "hashes": {
+            "md5": "987e6a564945a40805a6fda80503697c"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/ext/matrix_float4x2_precision.hpp"
+          },
+          "hashes": {
+            "md5": "b0569fc05b029b4873f79f89c6ea632a"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/mat4x3.hpp"
+          },
+          "hashes": {
+            "md5": "d4866acb2b555bdd47ab09ce17715510"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/ext/matrix_double4x3.hpp"
+          },
+          "hashes": {
+            "md5": "8b6a3b452070b64c909aa625f7797efc"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/detail/type_mat4x3.hpp"
+          },
+          "hashes": {
+            "md5": "2a1c3e6964f40ba71945d41974a51dad"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/detail/type_mat4x3.inl"
+          },
+          "hashes": {
+            "md5": "ac716df8c680e19733384d9968d4a845"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/ext/matrix_double4x3_precision.hpp"
+          },
+          "hashes": {
+            "md5": "473f5150365f0484d1ba8c1c558b1746"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/ext/matrix_float4x3.hpp"
+          },
+          "hashes": {
+            "md5": "d0833389efe6d299c4afddc1fa41c71f"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/ext/matrix_float4x3_precision.hpp"
+          },
+          "hashes": {
+            "md5": "3470646ee954d2a4ebac7a63b87890a6"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/mat4x4.hpp"
+          },
+          "hashes": {
+            "md5": "a7dcdf3d616f5ec44bf6e3886cef69d8"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/ext/matrix_double4x4.hpp"
+          },
+          "hashes": {
+            "md5": "d712f6bbe13d5e32d19389da62611617"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/detail/type_mat4x4.hpp"
+          },
+          "hashes": {
+            "md5": "73e448b91cd0663258748b64ac270d3a"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/detail/type_mat4x4.inl"
+          },
+          "hashes": {
+            "md5": "d2c1e0ccda19ad7c62f1365407406e2c"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/ext/matrix_double4x4_precision.hpp"
+          },
+          "hashes": {
+            "md5": "58dbe39d31ed909fee0dfa96b7febd2d"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/ext/matrix_float4x4.hpp"
+          },
+          "hashes": {
+            "md5": "f55fbdf3dbdf2e5a3d2a4055738ea7b1"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/ext/matrix_float4x4_precision.hpp"
+          },
+          "hashes": {
+            "md5": "b504e594a03c39d97e0ac65217756cf9"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/detail/func_matrix.inl"
+          },
+          "hashes": {
+            "md5": "d0a2fa49693ffbde1b4c837687e5e75e"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/geometric.hpp"
+          },
+          "hashes": {
+            "md5": "d624fcb539f94e5d9b23595c4d04cf4a"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/detail/func_geometric.inl"
+          },
+          "hashes": {
+            "md5": "0a6111d3fc06192080edc1cd7cddc8bb"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/exponential.hpp"
+          },
+          "hashes": {
+            "md5": "d0420791049cb2398cbaf2f534378744"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/detail/type_vec1.hpp"
+          },
+          "hashes": {
+            "md5": "49fd38e14088ff29f786a20396ae7a85"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/detail/type_vec1.inl"
+          },
+          "hashes": {
+            "md5": "287574c13eee5fb014a7d5c02cece0ad"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/detail/func_exponential.inl"
+          },
+          "hashes": {
+            "md5": "b19f14dfb0cfa5ffaa0bdc722dc58583"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/vector_relational.hpp"
+          },
+          "hashes": {
+            "md5": "fc9e73be8c936c74b46c1113342f398c"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/detail/func_vector_relational.inl"
+          },
+          "hashes": {
+            "md5": "91234408444307e7d2d5374b0239bf08"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/detail/_vectorize.hpp"
+          },
+          "hashes": {
+            "md5": "f13f86894c3d12be4a4a5c05bd1b939d"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/common.hpp"
+          },
+          "hashes": {
+            "md5": "7dd527c6e4e1d794bbdf2548d5bb557d"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/detail/func_common.inl"
+          },
+          "hashes": {
+            "md5": "bc98dd3ec040625d32c1212323148098"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/detail/compute_common.hpp"
+          },
+          "hashes": {
+            "md5": "5ca0a92abc175d72ce50841ee56a11e3"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/ext/matrix_double2x2_precision.hpp"
+          },
+          "hashes": {
+            "md5": "450bef16ce9975cf6eceb803837eea46"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/ext/matrix_float2x2.hpp"
+          },
+          "hashes": {
+            "md5": "aba93c6e3189111b8c738ba96b22744e"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/ext/matrix_float2x2_precision.hpp"
+          },
+          "hashes": {
+            "md5": "3d06f51d7e991f5c3c8a2baee4198c26"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/trigonometric.hpp"
+          },
+          "hashes": {
+            "md5": "35b09c6d3ed16bec93bc8919ee48037a"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/detail/func_trigonometric.inl"
+          },
+          "hashes": {
+            "md5": "6b9b39951c52f79881c5f6a44bc147ca"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/packing.hpp"
+          },
+          "hashes": {
+            "md5": "d7359a27a6275b1d6239015770896026"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/detail/func_packing.inl"
+          },
+          "hashes": {
+            "md5": "05831c7ec61e8f2de94180b63e575f3b"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/detail/type_half.hpp"
+          },
+          "hashes": {
+            "md5": "37bd666b26f36fd2c230c580c8fe2a2a"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/detail/type_half.inl"
+          },
+          "hashes": {
+            "md5": "8f73342ad5495950b7009cf8c4cdcab9"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/integer.hpp"
+          },
+          "hashes": {
+            "md5": "9c1f4e4cccc9c898d20a19923cd6d9b7"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glm/glm/detail/func_integer.inl"
+          },
+          "hashes": {
+            "md5": "408e40bdbf5bbe602a4e3c13f4c0c299"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/src/raid/renderer/vertexarray.h"
+          },
+          "hashes": {
+            "md5": "ed7e7dfef48309ae3fd5adc751bd046a"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/src/raid/renderer/buffer.h"
+          },
+          "hashes": {
+            "md5": "b53f2fd3686e99c90d22b02bd5b05c87"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glad/include/glad/glad.h"
+          },
+          "hashes": {
+            "md5": "b0c9ab643db0a8604c77eba3561c26d0"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/vendor/glad/include/khr/khrplatform.h"
+          },
+          "hashes": {
+            "md5": "d03191518ac2cfc3c10d22df034b154a"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/Users/hunte/source/repos/Raidriarch/Raidriarch/src/Raid/Events/Event.h"
+          },
+          "roles": [
+            "resultFile"
+          ],
+          "hashes": {
+            "md5": "4f3250a564be5b705beb7eccc366fbf3"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/src/raid/renderer/renderer.cpp"
+          },
+          "roles": [
+            "analysisTarget"
+          ],
+          "hashes": {
+            "md5": "ec2996b6dfca0c685d0a7e78ad9f5d7f"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/src/raid/renderer/renderer.h"
+          },
+          "hashes": {
+            "md5": "32a8ff2d944e374ba7d6967c8f9d76dd"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/src/raid/renderer/rendercommand.h"
+          },
+          "hashes": {
+            "md5": "3dfb767067856f6a1443b3db3c0f3625"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/src/raid/renderer/perspectivecamera.h"
+          },
+          "hashes": {
+            "md5": "575e595157213594c7894d0d7c3b6198"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/src/raid/events/appevent.h"
+          },
+          "hashes": {
+            "md5": "4d6a3e02b7850ab9fa29ff2fc92f081c"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/src/raid/events/mouseevent.h"
+          },
+          "hashes": {
+            "md5": "fb168240d5e08f76d845d13320bea5ff"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/src/raid/core/timestep.h"
+          },
+          "hashes": {
+            "md5": "fdb6251c302d1851576a45d5f241d2a2"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/src/raid/renderer/orthographiccamera.h"
+          },
+          "hashes": {
+            "md5": "0f6c91fd1b9b2232b1b24cafbe2bb68a"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/src/raid/renderer/shader.h"
+          },
+          "hashes": {
+            "md5": "3eebd753b4191ad9eb9761d2721a39a4"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/src/raid/renderer/renderer2d.h"
+          },
+          "hashes": {
+            "md5": "af35950d5e1e1fc1400f19d1832d6b79"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/src/raid/renderer/texture.h"
+          },
+          "hashes": {
+            "md5": "9023a7b57cfeaff3b7a19360381a15f3"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/hunte/source/repos/raidriarch/raidriarch/src/platform/opengl/openglshader.h"
+          },
+          "hashes": {
+            "md5": "36d9e5afdb1a5a8e762a41fdffc4ab73"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,2 @@
+C:\Users\hunte\source\repos\Raidriarch\bin\Debug-windows-x86_64\Game\Game.exe.lastcodeanalysissucceeded
+C:\Users\hunte\source\repos\Raidriarch\bin-int\Debug-windows-x86_64\Game\NativeCodeAnalysis.read.1.tlog

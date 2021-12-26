@@ -14,10 +14,19 @@ namespace Raid {
 	OpenGLFramebuffer::~OpenGLFramebuffer()
 	{
 		glDeleteFramebuffers(1, &m_RendererID);
+		glDeleteTextures(1, &m_ColorAttachment);
+		glDeleteRenderbuffers(1, &m_DepthStencilAttachment);
 	}
 
 	void OpenGLFramebuffer::Reset()
 	{
+		if (m_RendererID)
+		{
+			glDeleteFramebuffers(1, &m_RendererID);
+			glDeleteTextures(1, &m_ColorAttachment);
+			glDeleteRenderbuffers(1, &m_DepthStencilAttachment);
+		}
+
 		glCreateFramebuffers(1, &m_RendererID);
 		glBindFramebuffer(GL_FRAMEBUFFER, m_RendererID);
 
@@ -39,9 +48,18 @@ namespace Raid {
 		glBindFramebuffer(GL_FRAMEBUFFER, 0);
 	}
 
+	void OpenGLFramebuffer::Resize(uint32_t width, uint32_t height)
+	{
+		m_Properties.Width = width;
+		m_Properties.Height = height;
+
+		Reset();
+	}
+
 	void OpenGLFramebuffer::Bind()
 	{
 		glBindFramebuffer(GL_FRAMEBUFFER, m_RendererID);
+		glViewport(0, 0, m_Properties.Width, m_Properties.Height);
 	}
 
 	void OpenGLFramebuffer::Unbind()

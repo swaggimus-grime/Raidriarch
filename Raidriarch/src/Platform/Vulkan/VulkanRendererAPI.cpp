@@ -7,6 +7,10 @@ namespace Raid {
 
 	}
 
+	void VulkanRendererAPI::SetViewport(uint32_t x, uint32_t y, uint32_t width, uint32_t height)
+	{
+	}
+
 	void VulkanRendererAPI::SetClearColor(const glm::vec4& color)
 	{
 

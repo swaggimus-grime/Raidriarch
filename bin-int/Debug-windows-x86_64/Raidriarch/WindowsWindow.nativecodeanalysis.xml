@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DEFECTS>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\hunte\source\repos\Raidriarch\Raidriarch\src\Raid\Events\</FILEPATH>
+      <FILENAME>Event.h</FILENAME>
+      <LINE>47</LINE>
+      <COLUMN>14</COLUMN>
+    </SFA>
+    <DEFECTCODE>26812</DEFECTCODE>
+    <DESCRIPTION>The enum type 'Raid::EventCategory' is unscoped. Prefer 'enum class' over 'enum' (Enum.3).</DESCRIPTION>
+    <FUNCTION>Raid::Event::IsInCategory</FUNCTION>
+    <DECORATED>?IsInCategory@Event@Raid@@QEAA_NW4EventCategory@2@@Z</DECORATED>
+    <FUNCLINE>47</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\hunte\source\repos\Raidriarch\Raidriarch\src\Platform\Windows\</FILEPATH>
+      <FILENAME>WindowsWindow.h</FILENAME>
+      <LINE>37</LINE>
+      <COLUMN>2</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'Raid::WindowsWindow::WindowData::VSync' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>Raid::WindowsWindow::WindowData::{ctor}</FUNCTION>
+    <DECORATED>??0WindowData@WindowsWindow@Raid@@QEAA@XZ</DECORATED>
+    <FUNCLINE>37</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>Raid::WindowsWindow::WindowData::VSync</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\hunte\source\repos\Raidriarch\Raidriarch\src\Platform\Windows\</FILEPATH>
+      <FILENAME>WindowsWindow.h</FILENAME>
+      <LINE>37</LINE>
+      <COLUMN>2</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'Raid::WindowsWindow::WindowData::Width' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>Raid::WindowsWindow::WindowData::{ctor}</FUNCTION>
+    <DECORATED>??0WindowData@WindowsWindow@Raid@@QEAA@XZ</DECORATED>
+    <FUNCLINE>37</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>Raid::WindowsWindow::WindowData::Width</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\hunte\source\repos\Raidriarch\Raidriarch\src\Platform\Windows\</FILEPATH>
+      <FILENAME>WindowsWindow.h</FILENAME>
+      <LINE>37</LINE>
+      <COLUMN>2</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'Raid::WindowsWindow::WindowData::Height' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>Raid::WindowsWindow::WindowData::{ctor}</FUNCTION>
+    <DECORATED>??0WindowData@WindowsWindow@Raid@@QEAA@XZ</DECORATED>
+    <FUNCLINE>37</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>Raid::WindowsWindow::WindowData::Height</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\hunte\source\repos\Raidriarch\Raidriarch\vendor\spdlog\include\spdlog\</FILEPATH>
+      <FILENAME>logger.h</FILENAME>
+      <LINE>91</LINE>
+      <COLUMN>4</COLUMN>
+    </SFA>
+    <DEFECTCODE>26812</DEFECTCODE>
+    <DESCRIPTION>The enum type 'spdlog::level::level_enum' is unscoped. Prefer 'enum class' over 'enum' (Enum.3).</DESCRIPTION>
+    <FUNCTION>spdlog::logger::log</FUNCTION>
+    <DECORATED>??$log@$$BY0BG@DAEAY0BK@$$CBD@logger@spdlog@@QEAAXW4level_enum@level@1@AEAY0BG@$$CBDAEAY0BK@$$CBD@Z</DECORATED>
+    <FUNCLINE>91</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+</DEFECTS>

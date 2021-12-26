@@ -4,6 +4,7 @@
 #include "Renderer.h"
 
 #include "Platform/OpenGL/OpenGLBuffer.h"
+#include "Platform/Vulkan/VulkanBuffer.h"
 
 namespace Raid {
 	Ref<VertexBuffer> VertexBuffer::Create(uint32_t size)
@@ -12,6 +13,7 @@ namespace Raid {
 		{
 		case RendererAPI::API::None:    RAID_CORE_ASSERT(false, "RendererAPI::None is currently not supported!"); return nullptr;
 		case RendererAPI::API::OpenGL:  return CreateRef<OpenGLVertexBuffer>(size);
+		case RendererAPI::API::Vulkan:  return CreateRef<VulkanVertexBuffer>(size);
 		}
 
 		RAID_CORE_ASSERT(false, "Unknown RendererAPI!");
@@ -24,6 +26,7 @@ namespace Raid {
 		{
 		case RendererAPI::API::None:    RAID_CORE_ASSERT(false, "RendererAPI::None is currently not supported!"); return nullptr;
 		case RendererAPI::API::OpenGL:  return CreateRef<OpenGLVertexBuffer>(vertices, size);
+		case RendererAPI::API::Vulkan:  return CreateRef<VulkanVertexBuffer>(vertices, size);
 		}
 
 		RAID_CORE_ASSERT(false, "Unknown RendererAPI!");
@@ -36,6 +39,7 @@ namespace Raid {
 		{
 		case RendererAPI::API::None:    RAID_CORE_ASSERT(false, "RendererAPI::None is currently not supported!"); return nullptr;
 		case RendererAPI::API::OpenGL:  return CreateRef<OpenGLIndexBuffer>(indices, size);
+		case RendererAPI::API::Vulkan:  return CreateRef<VulkanIndexBuffer>(indices, size);
 		}
 
 		RAID_CORE_ASSERT(false, "Unknown RendererAPI!");
