@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 {"otherData": {},"traceEvents":[{"cat":"function","dur":953,"name":"__cdecl Raid::OpenGLVertexBuffer::OpenGLVertexBuffer(unsigned int)","ph":"X","pid":0,"tid":232207298,"ts":187729551124},{"cat":"function","dur":437053,"name":"__cdecl Raid::App::App(const class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > &)","ph":"X","pid":0,"tid":232207298,"ts":187729197171},{"cat":"function","dur":7636,"name":"void __cdecl Game2D::OnAttach(void)","ph":"X","pid":0,"tid":232207298,"ts":187729634340}]}
+=======
+{"otherData": {},"traceEvents":[{"cat":"function","dur":41,"name":"__cdecl Raid::OpenGLVertexBuffer::OpenGLVertexBuffer(unsigned int)","ph":"X","pid":0,"tid":2633482816,"ts":267862891716},{"cat":"function","dur":1127476,"name":"__cdecl Raid::App::App(const class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > &)","ph":"X","pid":0,"tid":2633482816,"ts":267861769772},{"cat":"function","dur":343,"name":"void __cdecl Game2D::OnAttach(void)","ph":"X","pid":0,"tid":2633482816,"ts":267862897404}]}
+>>>>>>> 36e4b133e23f504a8391ec7891744884dced6606
